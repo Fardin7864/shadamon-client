@@ -1,18 +1,35 @@
+import Posts from "@/client/Posts";
+import { IoMail } from "react-icons/io5";
+import { FaCaretDown } from "react-icons/fa";
+
+
 const Navbar = () => {
-    return (
-        <div style={{maxWidth: "1010px", gap: '50px'}} className=" mx-auto flex items-center">
-            <div style={{width: '250px'}} className=" border-4">
-                <h2>Col 1</h2>
-            </div>
-            <div style={{width: '500px'}}  className=" w-[500px] border-4">
-            <h2>Col 2</h2>
-            </div>
-            <div style={{width: '160px'}}  className=" w-[160px] border-4">
-            <h2>Col 3</h2>
-            </div>
-            
+  return (
+    <div
+      style={{ maxWidth: "1010px", gap: "50px" }}
+      className=" mx-auto flex items-center"
+    >
+      <div style={{ width: "250px" }} className=" h-16"> 
+        <img src="/shadamonlogo.png" alt="logo" className="w-40 h-full " />
+      </div>
+      <div style={{ width: "500px" }} className=" w-[500px] h-16 flex justify-between items-center">
+        <Posts/>
+        <div className=" flex items-center gap-2">
+          <button className=" bg-gray-200 p-2 rounded-full text-sm">EN</button>
+          <button className=" bg-gray-200 p-2 rounded-full">
+            <IoMail className=" text-xl"/> 
+          </button>
+          <sup className=" bg-red-600 -left-4 px-[5px] py-[9.5px] -top-3 rounded-full text-[8px] text-white">29</sup>
         </div>
-    );
+      </div>
+      <div className=" w-[170px]">
+        <div className=" flex justify-between items-center gap-2">
+            <button className=" bg-[#fb6320] text-[.68rem] font-medium py-2 text-white px-10 rounded-full">POST AD</button>
+        <button className=" bg-gray-200 p-2 rounded-full"><FaCaretDown/></button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
