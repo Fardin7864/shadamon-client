@@ -1,29 +1,33 @@
-import SocialLogin from "@/common/SocialLogin.js";
+"use client";
+
+import SocialLogin from "@/common/SocialLogin";
 import Image from "next/image";
+import { FaCaretDown } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 
-const Login = () => {
+const LoginModal = () => {
   return (
-    <div className=" bg-white pt-3">
-      {/* logo */}
-      <div className=" flex justify-center mt-5 mb-2">
-        <Image
-          src="/shadamonlogo.png"
-          width={200}
-          height={80}
-          priority
-          alt="Login Logo"
-        />
-      </div>
+    <>
+      <button
+        onClick={() => document.getElementById("my_modal_5").showModal()}
+        className=" bg-[#fb6320] text-[.68rem] font-medium py-2 text-white px-10 rounded-full"
+      >
+        POST AD
+      </button>
+      <button className=" bg-gray-200 p-2 rounded-full">
+            <FaCaretDown />
+        </button>
+
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
       {/* login form */}
-      <div className=" max-w-[500px] mx-auto border h-[100vh] rounded-t-xl bg-gray-100 border-gray-600 pt-3 px-3">
+      <div className=" max-w-[500px] mx-auto rounded-xl bg-gray-100 pt-3 px-3 pb-10">
         {/* arow and cross */}
         <div className="flex justify-between items-center">
-          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full">
+          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full modal-backdrop">
             <FaArrowLeftLong />
           </button>
-          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full">
+          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full modal-backdrop">
             <RxCross2 />
           </button>
         </div>
@@ -76,8 +80,9 @@ const Login = () => {
           <SocialLogin />
         </div>
       </div>
-    </div>
+      </dialog>
+    </>
   );
 };
 
-export default Login;
+export default LoginModal;
