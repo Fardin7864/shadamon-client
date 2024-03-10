@@ -23,25 +23,9 @@ import { LuLink } from "react-icons/lu";
 
 const Home = () => {
   const location = usePathname();
-  console.log(location);
+  // console.log(location);
   return (
     <div className=" pb-16 ">
-      {/* Navbar */}
-      <div className=" bg-white mb-2 rounded-lg px-2">
-        <div className=" flex items-center gap-2">
-          <button>
-            <IoMdMenu className=" text-3xl" />
-          </button>
-
-          <Image
-            src={"/shadamonlogo.png"}
-            width={150}
-            height={40}
-            alt="Logo"
-            className=""
-          />
-        </div>
-      </div>
       {/* side bar */}
       <div className=" w-60 rounded-xl bg-white pt-5 flex flex-col gap-3 pb-10">
         {/* Dashboard */}
