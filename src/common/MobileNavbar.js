@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { FaHome } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { FaCirclePlus } from "react-icons/fa6";
-import { IoCallOutline, IoChatbubblesOutline  } from "react-icons/io5";
+import { IoCallOutline, IoChatbubblesOutline ,IoMailOpenOutline, IoPersonOutline   } from "react-icons/io5";
 
 
 const MobileNavbar = () => {
@@ -12,7 +12,7 @@ const MobileNavbar = () => {
   console.log(location);
   return (
     <div>
-      <div className=" flex justify-between w-[100vw] px-1 h-16">
+      <div className=" flex justify-between w-[100vw] px-1 h-16 mb-5">
         {/* First half */}
         <div className=" flex px-2 border-t-2 rounded-t-xl mb-1 bg-white">
           <Link
@@ -33,26 +33,26 @@ const MobileNavbar = () => {
           </Link>
         </div>
         {/* plus logo */} 
-        <div className=" border-b-2 p-2 mb-6 rounded-full">
+        <div className=" border-b-2 relative -top-4 rounded-full">
         <FaCirclePlus className=" text-6xl text-[#fd6c16]"/>
         </div>
         {/* 2nd Half */}
         <div className=" flex px-2 border-t-2 rounded-t-xl mb-1 bg-white">
           <Link
-            href={"/"}
+            href={"/inbox"}
             className={`flex flex-col justify-center items-center ${
-              location === "/" ? "bg-gray-200" : "bg-transparent"
+              location === "/inbox" ? "bg-gray-200" : "bg-transparent"
             }  px-3 rounded-b-2xl pt-2 pb-1 text-sm font-medium`}
           >
-            <FaHome className=" text-2xl" /> HOME
+            <IoMailOpenOutline  className=" text-2xl" /> INBOX
           </Link>
           <Link
-            href={"/search"}
+            href={"/profile"}
             className={`flex flex-col justify-center items-center ${
-              location === "/search" ? "bg-gray-200" : "bg-transparent"
+              location === "/profile" ? "bg-gray-200" : "bg-transparent"
             }  px-3 rounded-b-2xl pt-2 pb-1 text-sm font-medium`}
           >
-            <IoSearch className=" text-2xl" /> SEARCH
+            <IoPersonOutline  className=" text-2xl" /> PRODILE
           </Link>
         </div>
       </div>
