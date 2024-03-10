@@ -25,7 +25,7 @@ const Home = () => {
   const location = usePathname();
   console.log(location);
   return (
-    <div className=" pb-16">
+    <div className=" pb-16 ">
       {/* Navbar */}
       <div className=" bg-white mb-2 rounded-lg px-2">
         <div className=" flex items-center gap-2">
@@ -67,9 +67,9 @@ const Home = () => {
         {/* Category */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/category"}
+            href={"/dashboard/category"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/category"
+              location === "/dashboard/category"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -78,7 +78,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/category"
+              location === "/dashboard/category"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -87,9 +87,9 @@ const Home = () => {
         {/* Sub Category */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/sub-category"}
+            href={"/dashboard/sub-category"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/sub-category"
+              location === "/dashboard/sub-category"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -98,7 +98,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/sub-category"
+              location === "/dashboard/sub-category"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -107,9 +107,9 @@ const Home = () => {
         {/* city */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/city"}
+            href={"/dashboard/city"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/city"
+              location === "/dashboard/city"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -118,7 +118,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/city"
+              location === "/dashboard/city"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -127,9 +127,9 @@ const Home = () => {
         {/* Post */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/post"}
+            href={"/dashboard/post"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/post"
+              location === "/dashboard/post"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -138,7 +138,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/post"
+              location === "/dashboard/post"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -147,9 +147,9 @@ const Home = () => {
         {/* Post approval */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/post-aproval"}
+            href={"/dashboard/post-aproval"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/post-aproval"
+              location === "/dashboard/post-aproval"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -158,7 +158,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/post-aproval"
+              location === "/dashboard/post-aproval"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -167,7 +167,7 @@ const Home = () => {
         {/* Home Sections */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/"}
+            href={"./"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
               location === "/"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
@@ -187,9 +187,9 @@ const Home = () => {
         {/* Notification */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/notification"}
+            href={"/dashboard/notification"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/notification"
+              location === "/dashboard/notification"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -198,7 +198,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/notification"
+              location === "/dashboard/notification"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -207,9 +207,9 @@ const Home = () => {
         {/* reports */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/report"}
+            href={"/dashboard/report"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/report"
+              location === "/dashboard/report"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -218,7 +218,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/report"
+              location === "/dashboard/report"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -227,9 +227,9 @@ const Home = () => {
         {/* Promote */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/promote"}
+            href={"/dashboard/promote"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/promote"
+              location === "/dashboard/promote"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -238,7 +238,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/promote"
+              location === "/dashboard/promote"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -247,9 +247,9 @@ const Home = () => {
         {/* Users */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/user"}
+            href={"/dashboard/user"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/user"
+              location === "/dashboard/user"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -258,7 +258,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/user"
+              location === "/dashboard/user"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -267,9 +267,9 @@ const Home = () => {
         {/* Admin */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/admin"}
+            href={"/dashboard/admin"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/admin"
+              location === "/dashboard/admin"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -278,7 +278,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/admin"
+              location === "/dashboard/admin"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -287,9 +287,9 @@ const Home = () => {
         {/* story plicy */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/story-policy"}
+            href={"/dashboard/story-policy"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/story-policy"
+              location === "/dashboard/story-policy"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -298,7 +298,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/story-policy"
+              location === "/dashboard/story-policy"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -307,9 +307,9 @@ const Home = () => {
         {/* setings */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/setings"}
+            href={"/dashboard/setings"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/setings"
+              location === "/dashboard/setings"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -318,7 +318,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/setings"
+              location === "/dashboard/setings"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -327,9 +327,9 @@ const Home = () => {
         {/* verification */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/verification"}
+            href={"/dashboard/verification"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/verification"
+              location === "/dashboard/verification"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -338,7 +338,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/verification"
+              location === "/dashboard/verification"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
@@ -347,9 +347,9 @@ const Home = () => {
         {/* URLs */}
         <div className=" flex justify-between ml-4">
           <Link
-            href={"/url"}
+            href={"/dashboard/url"}
             className={` flex items-center gap-3  px-4 py-2 w-11/12 ${
-              location === "/url"
+              location === "/dashboard/url"
                 ? "bg-blue-100 text-blue-800 font-medium rounded-lg "
                 : ""
             } `}
@@ -358,7 +358,7 @@ const Home = () => {
           </Link>
           <div
             className={` ${
-              location === "/url"
+              location === "/dashboard/url"
                 ? " border-2 w-[1px] border-blue-800 rounded-l-xl"
                 : ""
             } `}
