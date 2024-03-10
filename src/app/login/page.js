@@ -1,4 +1,4 @@
-import SocialLogin from "@/common/SocialLogin";
+import SocialLogin from "@/common/SocialLogin.js";
 import Image from "next/image";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
