@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/common/Navbar";
 import MobileNavbar from "@/common/MobileNavbar";
+import AuthanticationProvider from "@/common/AuthanticationContext";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,19 +14,23 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className=" border-2 hidden md:block">
-           <Navbar />
-        </div>
-     
-        <div className=" bg-gray-100">
-           {children} 
-        </div>
-        <div className=" md:hidden fixed bottom-0">
-          <MobileNavbar/>
-        </div>
-      </body>
-    </html>
+    <AuthanticationProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <div className=" border-2 hidden md:block">
+            <Navbar />
+          </div>
+
+          <div className=" bg-gray-100">
+            <ToastContainer />
+
+            {children}
+          </div>
+          <div className=" md:hidden fixed bottom-0">
+            <MobileNavbar />
+          </div>
+        </body>
+      </html>
+    </AuthanticationProvider>
   );
 }
