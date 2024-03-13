@@ -4,6 +4,8 @@ import Navbar from "@/common/Navbar";
 import MobileNavbar from "@/common/MobileNavbar";
 import AuthanticationProvider from "@/common/AuthanticationContext";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
