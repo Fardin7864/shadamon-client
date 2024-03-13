@@ -1,9 +1,19 @@
+import Loaduser from "@/client/Loaduser.js";
+import UsersTable from "@/client/UsersTable";
 import Home from "@/dashboardComponents/Home";
 import React from "react";
 import { BsCaretDownFill, BsSearch } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 
-const page = () => {
+const page = async () => {
+  let users;
+  const response = await fetch("http://localhost:8000/api/v1/users/users");
+  if (response.ok) {
+    users = await response.json();
+    console.log(users.data);
+  } else {
+    throw new Error("Failed to fetch users");
+  }
   return (
     <div className=" bg-gray-300">
       <div className=" max-w-[1440px] mx-auto pt-2 px-5 flex gap-10">
@@ -58,7 +68,33 @@ const page = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
+                <UsersTable/>
+                {/* {users?.map((user) => (
+                  <tr key={user._id}>
+                    <th>
+                      <label>
+                        <input type="checkbox" className="checkbox" />
+                      </label>
+                    </th>
+                    <td>
+                      <p>{user._id}</p>
+                    </td>
+                    <td>{user.username}</td>
+                    <td>User</td>
+                    <td>Test address</td>
+                    <td>{user.createdAt}</td>
+                    <td>Active</td>
+                    <td>3.5</td>
+                    <td>Normal</td>
+                    <th>
+                      <button className="btn btn-ghost btn-xs">Edit</button>
+                      <button className="btn btn-ghost btn-xs text-red-600">
+                        Delete
+                      </button>
+                    </th>
+                  </tr>
+                ))} */}
+                {/* <tr>
                   <th>
                     <label>
                       <input type="checkbox" className="checkbox" />
@@ -80,11 +116,10 @@ const page = () => {
                     <button className="btn btn-ghost btn-xs">Edit</button>
                     <button className="btn btn-ghost btn-xs text-red-600">Delete</button>
                   </th>
-                </tr>
+                </tr> */}
               </tbody>
               {/* foot */}
-              <tfoot>
-              </tfoot>
+              <tfoot></tfoot>
             </table>
           </div>
         </div>
