@@ -4,62 +4,67 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMail } from "react-icons/io5";
 import { AuthContext } from "./AuthanticationContext";
+// import { AuthContext } from "./AuthenticationContext";
 
 const SocialLogin = () => {
-    const [logdInUser, setLogdInUser] = useState();
-  const { loginWithProvider, google, successToast, faildToast, user } =
-    useContext(AuthContext);
+  const [loggedInUser, setLoggedInUser] = useState();
+  const { loginWithProvider, google, successToast, failToast, user } = useContext(AuthContext);
+
   const handlePopup = (provider) => {
     loginWithProvider(provider)
       .then(() => {
-        // console.log(user);
         const newUser = {
           username: user?.displayName,
           email: user?.email,
-          roll: "user",
-          password: "Test123",
+          category: "User",
+          location: "Dhaka",
+          createdDate: new Date().toDateString(),
+          status: "Pending",
+          rating: "0",
+          editBy: "",
         };
-        // conso////////le.log(newUser);
-        const registerUser = fetch("http://localhost:8000/api/v1/users/register", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newUser),
+
+        fetch("https://shadamon-m-server.vercel.app/api/v1/users/add", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newUser),
         })
         .then(response => response.json())
-        .then(data => setLogdInUser(data))
-
-        // console.log(registerUser);
-        successToast();
+        .then(data => setLoggedInUser(data))
+        .then(successToast())
+        .catch(() => {
+          failToast();
+        });
       })
       .catch(() => {
-        faildToast();
+        failToast();
       });
   };
-  //  console.log(user?.displayName)
+
   return (
-    <div className=" px-10">
+    <div className="px-10">
       <button
         style={{ backgroundColor: "#4267a6" }}
-        className=" flex items-center gap-2 rounded-md py-2 px-5 w-full text-white hover:opacity-65 active:opacity-30"
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full text-white hover:opacity-65 active:opacity-30"
       >
-        <FaFacebookSquare className=" text-white text-xl" /> Continue with
-        Facebook
+        <FaFacebookSquare className="text-white text-xl" /> Continue with Facebook
       </button>
-      {/* google */}
+
       <button
         onClick={() => handlePopup(google)}
         style={{ backgroundColor: "white", marginTop: "8px" }}
-        className=" flex items-center gap-2 rounded-md py-2 px-5 w-full border hover:opacity-65 active:opacity-30"
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full border hover:opacity-65 active:opacity-30"
       >
-        <FcGoogle className=" text-white text-xl" /> Continue with Google
+        <FcGoogle className="text-white text-xl" /> Continue with Google
       </button>
+
       <button
         style={{ backgroundColor: "white", marginTop: "8px" }}
-        className=" flex items-center gap-2 rounded-md py-2 px-5 w-full hover:opacity-65 active:opacity-30"
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full hover:opacity-65 active:opacity-30"
       >
-        <IoMail className=" text-xl" /> Continue with email
+        <IoMail className="text-xl" /> Continue with Email
       </button>
     </div>
   );

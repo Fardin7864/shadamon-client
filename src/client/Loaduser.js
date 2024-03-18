@@ -5,7 +5,7 @@ const Loaduser = () => {
 
     const [users, setUsers] = useState();
     useEffect(() => { 
-        const users = fetch("http://localhost:8000/api/v1/users/users").then(res => res.json()).then(data => setUsers(data))
+        const users = fetch("https://shadamon-m-server.vercel.app/api/v1/users").then(res => res.json()).then(data => setUsers(data))
      },[])
     return users;
 };

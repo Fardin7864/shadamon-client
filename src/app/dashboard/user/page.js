@@ -1,3 +1,4 @@
+"use client"
 import Loaduser from "@/client/Loaduser.js";
 import UsersTable from "@/client/UsersTable";
 import Home from "@/dashboardComponents/Home";
@@ -5,15 +6,7 @@ import React from "react";
 import { BsCaretDownFill, BsSearch } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 
-const page = async () => {
-  let users;
-  const response = await fetch("http://localhost:8000/api/v1/users/users");
-  if (response.ok) {
-    users = await response.json();
-    console.log(users.data);
-  } else {
-    throw new Error("Failed to fetch users");
-  }
+const page = () => {
   return (
     <div className=" bg-gray-300">
       <div className=" max-w-[1440px] mx-auto pt-2 px-5 flex gap-10">
@@ -56,7 +49,7 @@ const page = async () => {
                     </label>
                   </th>
                   <th>Id</th>
-                  <th>M Name</th>
+                  <th>Name</th>
                   <th>Category</th>
                   <th>Location</th>
                   <th>Created Date</th>
@@ -69,54 +62,6 @@ const page = async () => {
               <tbody>
                 {/* row 1 */}
                 <UsersTable/>
-                {/* {users?.map((user) => (
-                  <tr key={user._id}>
-                    <th>
-                      <label>
-                        <input type="checkbox" className="checkbox" />
-                      </label>
-                    </th>
-                    <td>
-                      <p>{user._id}</p>
-                    </td>
-                    <td>{user.username}</td>
-                    <td>User</td>
-                    <td>Test address</td>
-                    <td>{user.createdAt}</td>
-                    <td>Active</td>
-                    <td>3.5</td>
-                    <td>Normal</td>
-                    <th>
-                      <button className="btn btn-ghost btn-xs">Edit</button>
-                      <button className="btn btn-ghost btn-xs text-red-600">
-                        Delete
-                      </button>
-                    </th>
-                  </tr>
-                ))} */}
-                {/* <tr>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </th>
-                  <td>
-                    <p>102</p>
-                  </td>
-                  <td>
-                    Fardin
-                  </td>
-                  <td>Developer</td>
-                  <td>Nalitabari</td>
-                  <td>20/2/24</td>
-                  <td>Active</td>
-                  <td>3.5</td>
-                  <td>Admin</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">Edit</button>
-                    <button className="btn btn-ghost btn-xs text-red-600">Delete</button>
-                  </th>
-                </tr> */}
               </tbody>
               {/* foot */}
               <tfoot></tfoot>
