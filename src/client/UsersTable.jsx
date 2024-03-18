@@ -6,6 +6,7 @@ const UsersTable = () => {
   const [users, setUsers] = useState([]);
   const [render, setRender] = useState(1);
   const [editUserId, setEditUserId] = useState(null);
+  const [isLoading, setLoading] = useState(true)
   const [editedUser, setEditedUser] = useState({
     username: "",
     category: "",
@@ -21,6 +22,7 @@ const UsersTable = () => {
       try {
         const res = await axios.get("https://shadamon-m-server.vercel.app/api/v1/users");
         setUsers(res.data?.data);
+        setLoading(false)
       } catch (error) {
         console.error("Error loading users:", error);
       }
@@ -75,7 +77,14 @@ const UsersTable = () => {
   };
 
   return (
-    <>
+    <>{isLoading? (<div className="flex flex-col gap-4 ">
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+  </div>)
+:
+(<>
       {users.map((user) => (
         <tr key={user._id}>
           <th>
@@ -145,6 +154,9 @@ const UsersTable = () => {
           </th>
         </tr>
       ))}
+</>)
+    }
+
     </>
   );
 };

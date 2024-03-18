@@ -2,6 +2,7 @@
 import Loaduser from "@/client/Loaduser.js";
 import UsersTable from "@/client/UsersTable";
 import Home from "@/dashboardComponents/Home";
+import Link from "next/link";
 import React from "react";
 import { BsCaretDownFill, BsSearch } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
@@ -32,9 +33,9 @@ const page = () => {
               <button className="bg-green-400 text-white px-2 rounded-md py-2 hover:opacity-65 active:opacity-40">
                 <BsSearch className=" text-xl font-bold" />
               </button>
-              <button className="bg-[#686dff] text-white px-4 rounded-md py-2 hover:opacity-65 active:opacity-40">
+              <Link href={"/dashboard/createuser"} className="bg-[#686dff] text-white px-4 rounded-md py-2 hover:opacity-65 active:opacity-40">
                 + Create User
-              </button>
+              </Link>
             </div>
           </div>
           {/* Table */}
