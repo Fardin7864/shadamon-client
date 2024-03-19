@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { FaCar } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { RiCellphoneFill } from "react-icons/ri";
@@ -6,13 +6,19 @@ import { FaHome } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { MdCarpenter } from "react-icons/md";
 import { IoHeartCircle } from "react-icons/io5";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
   return (
     <div className="w-[250px] ">
       <div className=" transition-all duration-300 transform top-0 start-0 bottom-0 z-[60]  pt-7 pb-10 overflow-y-auto hidden lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
         <nav
-          className=" p-6 w-full flex flex-col flex-wrap"
+          className="w-full flex flex-col flex-wrap"
           data-hs-accordion-always-open
         >
           <ul className="space-y-1">
@@ -53,11 +59,36 @@ const Sidebar = () => {
                 Home Delivery
               </label>
             </li>
+
+            {showMore && (
+              <>
+                <li className="flex gap-x-4">
+                  <input type="checkbox" id="Urgent" />
+                  <label for="Urgent" className="text-md text-slate-700 ">
+                    Urgent 2
+                  </label>
+                </li>
+                <li className="flex gap-x-4">
+                  <input type="checkbox" id="Cheap" />
+                  <label for="Cheap" className="text-md text-slate-700 ">
+                    Cheap Rate 2
+                  </label>
+                </li>
+                <li className="flex gap-x-4">
+                  <input type="checkbox" id="homeDelivery" />
+                  <label for="homeDelivery" className="text-md text-slate-700 ">
+                    {" "}
+                    Home Delivery 2
+                  </label>
+                </li>
+              </>
+            )}
             <button
               type="button"
+              onClick={toggleShowMore}
               className="w-full text-start ml-7 text-sm font-semibold text-[#fb6320] pb-3"
             >
-              See More
+              {showMore ? "Show Less" : "See More"}
             </button>
 
             <hr />
