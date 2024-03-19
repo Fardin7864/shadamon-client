@@ -12,13 +12,12 @@ export default function Home() {
 
       <MainSection />
 
-      <div className="w-[160px] pt-[30px] flex justify-center">
+      <div className="w-[160px] pt-[50px] flex justify-center">
         <Image
           src="/left-banner.jpg"
           alt="sidebar ad"
           width={200}
           height={500}
-
           className=" max-h-[500px]"
         />
       </div>
