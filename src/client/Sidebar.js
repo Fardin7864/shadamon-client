@@ -14,6 +14,7 @@ const Sidebar = () => {
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
+
   return (
     <div className="w-[250px] ">
       <div className=" transition-all duration-300 transform top-0 start-0 bottom-0 z-[60]  pt-7 pb-10 overflow-y-auto hidden lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
