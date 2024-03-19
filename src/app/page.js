@@ -6,16 +6,20 @@ export default function Home() {
   return (
     <main
       style={{ maxWidth: "1010px", gap: "50px" }}
-      className="mx-auto flex items-start"
+      className="mx-auto flex justify-between "
     >
       <Sidebar />
 
       <MainSection />
 
-      <div className="w-[250px] pt-[50px]">
-        <img
-          src="https://shadamon.vercel.app/assets/left-ad-banner.jpg"
+      <div className="w-[160px] pt-[30px] flex justify-center">
+        <Image
+          src="/left-banner.jpg"
           alt="sidebar ad"
+          width={250}
+          height={0}
+
+          
         />
       </div>
     </main>

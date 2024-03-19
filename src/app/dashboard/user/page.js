@@ -65,7 +65,6 @@ const page = () => {
                 <UsersTable/>
               </tbody>
               {/* foot */}
-              <tfoot></tfoot>
             </table>
           </div>
         </div>

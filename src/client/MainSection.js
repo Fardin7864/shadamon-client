@@ -38,7 +38,7 @@ const MainSection = () => {
 
             <div className="flex justify-between ">
               <h3 className="font-semibold text-lg">$ 2.85</h3>
-              <button className="border px-3 py-1 border-slate-400">
+              <button className="border px-3 py-1 border-slate-400 rounded-sm">
                 Detail
               </button>
             </div>
