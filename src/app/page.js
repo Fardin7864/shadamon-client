@@ -16,10 +16,10 @@ export default function Home() {
         <Image
           src="/left-banner.jpg"
           alt="sidebar ad"
-          width={250}
-          height={0}
+          width={200}
+          height={500}
 
-          
+          className=" max-h-[500px]"
         />
       </div>
     </main>
