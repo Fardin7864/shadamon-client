@@ -3,6 +3,7 @@ import Home from "@/dashboardComponents/Home";
 import React from "react";
 import { FaArrowLeft, FaPlus, FaSearch } from "react-icons/fa";
 import Categorytable from "./Categorytable";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -23,13 +24,13 @@ const page = () => {
                 <input type="search" className=" border p-1 rounded-sm rounded-r-none" placeholder=" search ..."/>
                 <button className=" border border-l-0  rounded-sm rounded-l-none p-2"><FaSearch className=" "/></button>
               </div>
-              <button className=" flex items-center gap-1 border p-2 rounded-md text-sm bg-[#686dff] text-white">
+              <Link href={"/dashboard/createcategory"} className=" flex items-center gap-1 border p-2 rounded-md text-sm bg-[#686dff] text-white">
                 <FaPlus /> Create Category
-              </button>
+              </Link>
             </div>
           </div>
           {/* Category Table */}
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto bg-gray-200 m-4 rounded-md p-2">
             <table className="table">
               {/* head */}
               <thead>
