@@ -132,7 +132,7 @@ const CreatePost = () => {
             label="Password"
             name="password"
           />
-          <IoMdEye />
+          {/* <IoMdEye /> */}
           <div className="border py-3">
             <p className="pl-3 text-xs font-semibold flex gap-2">
               Phone number{" "}
