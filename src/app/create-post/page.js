@@ -60,8 +60,8 @@ const CreatePost = () => {
                 onChange={handleImageUpload}
               />
               <div className="uploader-container">
-                <div className="bg-gray-200 rounded-full p-2">
-                  <MdAddToPhotos id="uploaded-image" className="text-5xl" />
+                <div className="bg-gray-200 rounded-full p-3">
+                  <MdAddToPhotos id="uploaded-image" className="text-4xl" />
                 </div>
                 <span className="uploader-title">Add Photos</span>
                 <span className="uploader-title2">or drag & drop</span>
