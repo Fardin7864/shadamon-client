@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*  */
+
+/* Main uploader container */
+.uploader {
+  position: relative;
+}
+
+/* Hidden file input */
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Container for uploader elements */
+.uploader-container {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.uploader-title {
+  font-weight: bold;
+}
+
+.uploader-title2 {
+  font-weight: 100;
+}
