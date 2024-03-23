@@ -14,6 +14,7 @@ import { SlCalender } from "react-icons/sl";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaShareAltSquare } from "react-icons/fa";
 import { FaExclamationCircle } from "react-icons/fa";
+import { MdOutlineNotInterested } from "react-icons/md";
 
 const Details = () => {
   return (
@@ -164,6 +165,7 @@ const Details = () => {
             <button className="bg-slate-900 text-white py-2 px-3 rounded-l-2xl rounded-r-2xl">
               Close Detail
             </button>
+            <MdOutlineNotInterested className="text-3xl rounded-full" />
             <FaShareAltSquare className="text-3xl rounded-full" />
           </div>
 
