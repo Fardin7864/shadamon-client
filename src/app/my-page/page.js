@@ -1,31 +1,39 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-
+import { IoCloseOutline } from "react-icons/io5";
 const MyPage = () => {
   return (
     <div className="w-[500px]  mx-auto pt-5 ">
       <div className="rounded-t-xl border border-gray-200 bg-[#f8f8f8]">
-        <div className="p-3 flex gap-3 rounded-t-xl bg-white ">
-          <button className="border  px-2 py-1 rounded-md bg-[#fb6320] text-white">
-            My Page
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            My Post
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            My Profile
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            Settings
+        <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white">
+          <div className="flex gap-3">
+            <button className="border px-2  rounded-md py-1 bg-[#fb6320] text-white text-sm">
+              My Page
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              My Post
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              My Profile
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              Settings
+            </button>
+          </div>
+
+          <button className="bg-gray-300 rounded-full h-8 w-8 hover:bg-black duration-300 hover:text-white text-2xl flex justify-center items-center">
+            <IoCloseOutline />
           </button>
         </div>
         <hr />
         <div className=" bg-white pt-3">
-          <img
-            className="px-3 w-full h-[100px] rounded-xl"
-            src="/cover.jpeg"
-            alt=""
-          />
+          <div className="mx-3">
+            <img
+              className=" w-full h-[100px] rounded-lg"
+              src="/cover.jpeg"
+              alt=""
+            />
+          </div>
 
           <div className=" px-3 flex my-2 gap-4 items-center">
             <img
@@ -34,7 +42,10 @@ const MyPage = () => {
               alt=""
             />
             <div className="">
-              <h4 className="font-bold text-xl">Rubel Store</h4>
+              <div className="flex gap-3">
+                <h4 className="font-bold text-xl">Rubel Store</h4>
+                <p>5 Seller</p>
+              </div>
               <p className="text-sm -mt-2">5,521 time visited</p>
               <p className="text-sm -mt-2">Electronics & Mobile Phone</p>
             </div>

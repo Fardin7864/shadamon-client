@@ -5,9 +5,11 @@ import React, { useState } from "react";
 import { FaMinus } from "react-icons/fa";
 import { IoBagRemoveSharp } from "react-icons/io5";
 import { IoHourglassSharp } from "react-icons/io5";
-import { GoPlusCircle } from "react-icons/go";
+import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { IoCloseOutline } from "react-icons/io5";
+import { SlCalender } from "react-icons/sl";
 
 const MyPost = () => {
   const [day, setDay] = useState(1);
@@ -29,23 +31,31 @@ const MyPost = () => {
     setValue(event.target.value);
   };
 
-  //
+  // date
+
+  const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <div className="w-[500px]  mx-auto pt-5 ">
-      <div className="rounded-t-xl border border-gray-200 bg-[#f8f8f8]">
-        <div className="p-3 flex gap-3 rounded-t-xl bg-white">
-          <button className="border  px-2 py-1 rounded-md bg-[#fb6320] text-white">
-            My Post
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            My Profile
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            Settings
-          </button>
-          <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300">
-            My Page
+      <div className="rounded-t-xl border border-gray-200  bg-[#f8f8f8]">
+        <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white">
+          <div className="flex gap-3">
+            <button className="border  px-2 py-1 rounded-md bg-[#fb6320] text-white text-sm">
+              My Post
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              My Profile
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              Settings
+            </button>
+            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+              My Page
+            </button>
+          </div>
+
+          <button className="bg-gray-300 rounded-full h-8 w-8 hover:bg-black duration-300 hover:text-white text-2xl flex justify-center items-center">
+            <IoCloseOutline />
           </button>
         </div>
         {/*  */}
@@ -149,18 +159,20 @@ const MyPost = () => {
                 Days <br /> {day}
               </h2>
               <button onClick={incrementDay} className="text-3xl">
-                <GoPlusCircle />
+                <FiPlusCircle />
               </button>
               <button onClick={decrementDay} className="text-3xl">
                 <FiMinusCircle />
               </button>
             </div>
             {/*  */}
-            <div className="border-2 w-1/2">
-              <button onClick={incrementDay} className="text-3xl">
-                <GoPlusCircle />
-              </button>
-              <h2>Days {day}</h2>
+            <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around items-center">
+              <SlCalender className="text-2xl" />
+
+              <div>
+                <p className="text-sm font-semibold">End Date</p>
+                <p className="text-sm font-semibold">Mar 20, 2024</p>
+              </div>
             </div>
           </div>
 
