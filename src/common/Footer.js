@@ -8,7 +8,7 @@ import { GoTriangleRight } from "react-icons/go";
 const Footer = () => {
   return (
     <div className="mx-auto ">
-      <div className="bg-white h-[180px] overflow-hidden flex flex-col lg:flex-row items-end gap-10 py-3 justify-center pl-[300px]">
+      <div className="bg-white h-[180px] overflow-hidden flex flex-col md:flex-row items-center md:items-end gap-10 py-3 justify-center pl:0 lg:pl-[300px]">
         <div>
           <img
             className="rounded-2xl -rotate-12 -mb-6"
@@ -38,8 +38,8 @@ const Footer = () => {
       {/*  */}
 
       <div
-        className="flex flex-col lg:flex-row gap-5 py-5 justify-between mx-auto"
-        style={{ maxWidth: "1010px", paddingLeft: "300px" }}
+        className="flex flex-col md:flex-row gap-5 py-5 justify-between mx-auto pl-5 lg:pl-[300px]"
+        style={{ maxWidth: "1010px" }}
       >
         <div>
           <h4 className="font-bold text-base mb-5 text-slate-700">

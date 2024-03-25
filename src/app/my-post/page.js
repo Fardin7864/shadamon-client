@@ -10,6 +10,7 @@ import { FiMinusCircle } from "react-icons/fi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
+import Link from "next/link";
 
 const MyPost = () => {
   const [day, setDay] = useState(1);
@@ -43,15 +44,19 @@ const MyPost = () => {
             <button className="border  px-2 py-1 rounded-md bg-[#fb6320] text-white text-sm">
               My Post
             </button>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              My Profile
-            </button>
+            <Link href="/profile">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                My Profile
+              </button>
+            </Link>
             <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
               Settings
             </button>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              My Page
-            </button>
+            <Link href="/my-page">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                My Page
+              </button>
+            </Link>
           </div>
 
           <button className="bg-gray-300 rounded-full h-8 w-8 hover:bg-black duration-300 hover:text-white text-2xl flex justify-center items-center">

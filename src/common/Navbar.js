@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Posts from "@/client/Posts";
 import { IoMail } from "react-icons/io5";
 import { FaCaretDown } from "react-icons/fa";
@@ -29,7 +30,7 @@ const Navbar = () => {
       </div>
       <div className=" w-[170px]">
         <div className=" flex justify-between items-center gap-2">
-          <LoginModal/>
+          <LoginModal />
         </div>
       </div>
     </div>

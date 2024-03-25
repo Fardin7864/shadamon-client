@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import React from "react";
 import { IoCloseOutline } from "react-icons/io5";
 const MyPage = () => {
@@ -10,12 +11,16 @@ const MyPage = () => {
             <button className="border px-2  rounded-md py-1 bg-[#fb6320] text-white text-sm">
               My Page
             </button>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              My Post
-            </button>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              My Profile
-            </button>
+            <Link href="/my-post">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                My Post
+              </button>
+            </Link>
+            <Link href="/profile">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                My Profile
+              </button>
+            </Link>
             <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
               Settings
             </button>

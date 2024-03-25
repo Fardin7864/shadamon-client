@@ -18,15 +18,18 @@ const CreatePost = () => {
   // Handle add image functionality
   const handleImageUpload = (e) => {
     const selectedFiles = e.target.files;
-    const newImages = Array.from(selectedFiles).map((file, index) => {
+    const remainingSlots = 10 - images.length; // Calculate remaining slots for images
+    const filesToUpload = Array.from(selectedFiles).slice(0, remainingSlots); // Select files up to remaining slots
+
+    const newImages = filesToUpload.map((file, index) => {
       const id = images.length + index + 1;
       const src = URL.createObjectURL(file);
 
       return { id, src };
     });
+
     const updatedImages = [...images, ...newImages];
     setImages(updatedImages);
-    console.log(updatedImages);
   };
 
   return (
@@ -67,6 +70,18 @@ const CreatePost = () => {
                 <span className="uploader-title2">or drag & drop</span>
               </div>
             </label>
+            {/* Display uploaded images */}
+
+            <div className="flex flex-wrap gap-2 mb-2 mx-2">
+              {images.map((image) => (
+                <img
+                  key={image.id}
+                  src={image.src}
+                  alt={`Uploaded Image ${image.id}`}
+                  className="border border-gray-400 h-10 w-10"
+                />
+              ))}
+            </div>
           </div>
           <input
             className="bg-inherit hover:border-gray-200 border border-gray-200 py-2 w-full text-gray-600 focus:outline-none px-3 mb-2 rounded-md"

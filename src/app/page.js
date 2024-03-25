@@ -7,12 +7,12 @@ export default function Home() {
   return (
     <div>
       <main style={{ maxWidth: "1010px", margin: "auto" }}>
-        <div className=" flex justify-between gap-[50px]">
+        <div className=" flex justify-between gap:2 lg:gap-[50px] w-full">
           <Sidebar />
 
           <MainSection />
 
-          <div className="w-[160px] pt-[50px] flex justify-center">
+          <div className="w-[160px] pt-[50px] hidden lg:flex justify-center ">
             <Image
               src="/left-banner.jpg"
               alt="sidebar ad"
