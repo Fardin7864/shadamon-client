@@ -38,7 +38,7 @@ const Footer = () => {
       {/*  */}
 
       <div
-        className="flex flex-col md:flex-row gap-5 py-5 justify-between mx-auto pl-5 lg:pl-[300px]"
+        className="flex flex-col items-center lg:items-start md:flex-row gap-5 py-5 justify-between mx-auto pl-5 lg:pl-[300px]"
         style={{ maxWidth: "1010px" }}
       >
         <div>
@@ -65,18 +65,22 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold text-base mb-5 text-slate-700">SHADAMON</h4>
+          <h4 className="font-bold text-base mb-5 text-slate-700 -ml-14 lg:ml-0">
+            SHADAMON
+          </h4>
           <ul>
-            <li className="text-sm text-slate-700">Blog</li>
-            <li className="text-sm text-slate-700">Help</li>
-            <li className="text-sm text-slate-700">Contact Us</li>
-            <li className="text-sm text-slate-700">
+            <li className="text-sm text-slate-700 -ml-14 lg:ml-0">Blog</li>
+            <li className="text-sm text-slate-700 -ml-14 lg:ml-0">Help</li>
+            <li className="text-sm text-slate-700 -ml-14 lg:ml-0">
+              Contact Us
+            </li>
+            <li className="text-sm text-slate-700 -ml-14 lg:ml-0">
               Legal & Privacy <br /> information
             </li>
           </ul>
         </div>
 
-        <div className="flex flex-col justify-between ">
+        <div className="flex flex-col justify-between">
           <h4 className="font-bold text-base   text-slate-700">FOLLOW US</h4>
           <div className="flex gap-2 items-center">
             <FaFacebookF className="text-slate-700 text-xl" />
