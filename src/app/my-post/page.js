@@ -11,6 +11,10 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import Link from "next/link";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+//
 
 const MyPost = () => {
   const [day, setDay] = useState(1);
@@ -35,6 +39,16 @@ const MyPost = () => {
   // date
 
   const [selectedDate, setSelectedDate] = useState(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const handleInputChange = (date) => {
+    setSelectedDate(date);
+    setShowCalendar(false);
+  };
+
+  const toggleCalendar = () => {
+    setShowCalendar(!showCalendar);
+  };
 
   return (
     <div className="w-[500px]  mx-auto pt-5 ">
@@ -171,16 +185,58 @@ const MyPost = () => {
               </button>
             </div>
             {/*  */}
-            <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around items-center">
-              <SlCalender className="text-2xl" />
+            {/* <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around items-center">
+              <SlCalender onClick={toggleCalendar} className="text-2xl" />
 
               <div>
                 <p className="text-sm font-semibold">End Date</p>
-                <p className="text-sm font-semibold">Mar 20, 2024</p>
+                <p className="text-sm font-semibold">
+                  {selectedDate && (
+                    <span className="selected-date">
+                      {selectedDate.toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                  )}
+                </p>
+              </div>
+            </div> */}
+
+            {/*  */}
+            <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around">
+              <div className="icon-wrapper ">
+                <button onClick={toggleCalendar}>
+                  <SlCalender className="text-2xl" />
+                </button>
+
+                <div className="date-text-wrapper">
+                  <p className="font-semibold">End Date</p>
+                  {selectedDate && (
+                    <span className="font-semibold">
+                      {selectedDate.toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-
+          <div className="flex justify-end">
+            {showCalendar && (
+              <DatePicker
+                onClickOutside={toggleCalendar}
+                selected={selectedDate}
+                onChange={handleInputChange}
+                inline
+                dateFormat="MMMM d, yyyy"
+              />
+            )}
+          </div>
           {/*  */}
 
           <h4 className="font-semibold text-sm mt-3">

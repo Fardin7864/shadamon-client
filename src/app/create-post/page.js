@@ -18,8 +18,8 @@ const CreatePost = () => {
   // Handle add image functionality
   const handleImageUpload = (e) => {
     const selectedFiles = e.target.files;
-    const remainingSlots = 10 - images.length; // Calculate remaining slots for images
-    const filesToUpload = Array.from(selectedFiles).slice(0, remainingSlots); // Select files up to remaining slots
+    const remainingSlots = 10 - images.length;
+    const filesToUpload = Array.from(selectedFiles).slice(0, remainingSlots);
 
     const newImages = filesToUpload.map((file, index) => {
       const id = images.length + index + 1;
