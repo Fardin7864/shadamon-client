@@ -13,9 +13,9 @@ import Link from "next/link";
 
 const MainSection = () => {
   return (
-    <div className="w-[500px] mx-auto">
+    <div className="w-[500px] mx-auto mt-5 md:mt-0">
       <div className="">
-        <div className="flex justify-between bg-white px-3 py-2 mb-3 rounded-b-xl ">
+        <div className="hidden md:flex justify-between bg-white px-3 py-2 mb-3 rounded-b-xl ">
           <div className="flex items-center gap-2">
             <MdOutlineCategory />
             <p className="font-semibold">Categories</p>

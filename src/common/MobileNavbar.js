@@ -59,7 +59,7 @@ const MobileNavbar = () => {
               location === "/profile" ? "bg-gray-200" : "bg-transparent"
             }  px-3 rounded-b-2xl pt-2 pb-1 text-sm font-medium`}
           >
-            <IoPersonOutline className=" text-2xl" /> PRODILE
+            <IoPersonOutline className=" text-2xl" /> PROFILE
           </Link>
         </div>
       </div>

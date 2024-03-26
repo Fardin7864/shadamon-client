@@ -5,6 +5,7 @@ import MobileNavbar from "@/common/MobileNavbar";
 import AuthanticationProvider from "@/common/AuthanticationContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MobileTopBar from "@/common/MobileTopbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,9 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <div className=" border-2 hidden md:block">
             <Navbar />
+          </div>
+          <div className=" border-2 block md:hidden ">
+            <MobileTopBar />
           </div>
 
           <div className=" bg-gray-100">
