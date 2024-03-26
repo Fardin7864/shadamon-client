@@ -15,6 +15,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaShareAltSquare } from "react-icons/fa";
 import { FaExclamationCircle } from "react-icons/fa";
 import { MdOutlineNotInterested } from "react-icons/md";
+import Link from "next/link";
 
 const Details = () => {
   return (
@@ -162,9 +163,11 @@ const Details = () => {
           <div className="my-4 flex justify-center items-center gap-2">
             <FaExclamationCircle className="text-2xl" />
             <FaHeartCirclePlus className="text-3xl" />
-            <button className="bg-slate-900 text-white py-2 px-3 rounded-l-2xl rounded-r-2xl">
-              Close Detail
-            </button>
+            <Link href="/">
+              <button className="bg-slate-900 text-white py-2 px-3 rounded-l-2xl rounded-r-2xl">
+                Close Detail
+              </button>{" "}
+            </Link>
             <MdOutlineNotInterested className="text-3xl rounded-full" />
             <FaShareAltSquare className="text-3xl rounded-full" />
           </div>
