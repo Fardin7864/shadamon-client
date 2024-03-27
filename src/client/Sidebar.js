@@ -36,8 +36,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[250px]">
-      <div className=" transition-all duration-300 transform top-0 start-0 bottom-0 z-[60] pt-[50px] pb-10 overflow-y-auto hidden lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+    <div className="w-[250px] hidden lg:block">
+      <div className=" transition-all duration-300 transform top-0 start-0 bottom-0 z-[60] pt-[50px] pb-10 hidden lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ">
         <nav
           className="w-full flex flex-col flex-wrap"
           data-hs-accordion-always-open
@@ -66,19 +66,22 @@ const Sidebar = () => {
               <>
                 <li className="flex gap-x-4">
                   <input type="checkbox" id="Urgent" />
-                  <label for="Urgent" className="text-md text-slate-700 ">
+                  <label htmlFor="Urgent" className="text-md text-slate-700 ">
                     Urgent
                   </label>
                 </li>
                 <li className="flex gap-x-4">
                   <input type="checkbox" id="Cheap" />
-                  <label for="Cheap" className="text-md text-slate-700 ">
+                  <label htmlFor="Cheap" className="text-md text-slate-700 ">
                     Cheap Rate
                   </label>
                 </li>
                 <li className="flex gap-x-4">
                   <input type="checkbox" id="homeDelivery" />
-                  <label for="homeDelivery" className="text-md text-slate-700 ">
+                  <label
+                    htmlFor="homeDelivery"
+                    className="text-md text-slate-700 "
+                  >
                     {" "}
                     Home Delivery
                   </label>
@@ -88,20 +91,26 @@ const Sidebar = () => {
                   <>
                     <li className="flex gap-x-4">
                       <input type="checkbox" id="Urgent" />
-                      <label for="Urgent" className="text-md text-slate-700 ">
+                      <label
+                        htmlFor="Urgent"
+                        className="text-md text-slate-700 "
+                      >
                         Urgent 2
                       </label>
                     </li>
                     <li className="flex gap-x-4">
                       <input type="checkbox" id="Cheap" />
-                      <label for="Cheap" className="text-md text-slate-700 ">
+                      <label
+                        htmlFor="Cheap"
+                        className="text-md text-slate-700 "
+                      >
                         Cheap Rate 2
                       </label>
                     </li>
                     <li className="flex gap-x-4">
                       <input type="checkbox" id="homeDelivery" />
                       <label
-                        for="homeDelivery"
+                        htmlFor="homeDelivery"
                         className="text-md text-slate-700 "
                       >
                         {" "}

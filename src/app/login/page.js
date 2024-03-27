@@ -1,5 +1,6 @@
 import SocialLogin from "@/common/SocialLogin.js";
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 
@@ -20,12 +21,16 @@ const Login = () => {
       <div className=" max-w-[500px] mx-auto border h-[100vh] rounded-t-xl bg-gray-100 border-gray-600 pt-3 px-3">
         {/* arow and cross */}
         <div className="flex justify-between items-center">
-          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full">
-            <FaArrowLeftLong />
-          </button>
-          <button className=" bg-gray-300 p-2 lg:p-3 rounded-full">
-            <RxCross2 />
-          </button>
+          <Link href={"/"}>
+            <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full">
+              <FaArrowLeftLong />
+            </button>
+          </Link>
+          <Link href={"/"}>
+            <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full">
+              <RxCross2 />
+            </button>
+          </Link>
         </div>
 
         {/* Register page logo section */}
@@ -60,7 +65,7 @@ const Login = () => {
                 className=" rounded-md rounded-l-none py-1 w-full outline-none px-2 font-medium border-l-2 "
               />
             </div>
-            <button className="bg-[#f67719] text-white text-xl font-light hover:bg-[#ff5800] hover:opacity-60 active:opacity-30 py-3 rounded-md">
+            <button className="bg-[#f67719] text-white text-lg font-light hover:bg-[#ff5900] hover:bg-opacity-70 active:opacity-30 py-[6px] rounded-md duration-300">
               Continue
             </button>
           </form>

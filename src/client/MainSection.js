@@ -9,12 +9,13 @@ import { FaCar } from "react-icons/fa";
 import { FcElectricalSensor } from "react-icons/fc";
 import { VscExtensions } from "react-icons/vsc";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import Link from "next/link";
 
 const MainSection = () => {
   return (
-    <div className="w-[500px] ">
+    <div className="w-[500px] mx-auto mt-5 md:mt-0">
       <div className="">
-        <div className="flex justify-between bg-white px-3 py-2 mb-3 rounded-b-xl ">
+        <div className="hidden md:flex justify-between bg-white px-3 py-2 mb-3 rounded-b-xl ">
           <div className="flex items-center gap-2">
             <MdOutlineCategory />
             <p className="font-semibold">Categories</p>
@@ -44,9 +45,11 @@ const MainSection = () => {
 
             <div className="flex justify-between -mb-3">
               <h3 className="font-semibold text-lg mt-0 ">$ 2.85</h3>
-              <button className="border px-3 py-1 border-slate-400 rounded-md">
-                Detail
-              </button>
+              <Link href="/details">
+                <button className="border px-3 py-1 border-slate-400 rounded-md">
+                  Detail
+                </button>
+              </Link>
             </div>
 
             {/*  */}
@@ -66,30 +69,32 @@ const MainSection = () => {
       </div>
 
       {/*  */}
-      <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
-        <img
-          className="h-[100px] w-[130px] rounded-lg"
-          src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
-          alt=""
-        />
-        <div>
-          <h2 className="font-semibold text-md mt-1">
-            Oxygen Taipei NTU Oxygen Gongguan
-          </h2>
-          <h2 className="font-semibold text-md -mt-2">Taipei NTU Oxygen</h2>
-          <div className="flex gap-3">
-            <div className="flex items-center gap-1 text-slate-600 text-xs">
-              <IoLocation />
-              <p>Dhaka</p>
+      <Link href="/details">
+        <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+          <img
+            className="h-[100px] w-[130px] rounded-lg"
+            src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+            alt=""
+          />
+          <div>
+            <h2 className="font-semibold text-md mt-1">
+              Oxygen Taipei NTU Oxygen Gongguan
+            </h2>
+            <h2 className="font-semibold text-md -mt-2">Taipei NTU Oxygen</h2>
+            <div className="flex gap-3">
+              <div className="flex items-center gap-1 text-slate-600 text-xs">
+                <IoLocation />
+                <p>Dhaka</p>
+              </div>
+              <div className="flex items-center gap-1 text-slate-600 text-xs">
+                <SlCalender />
+                <p>Dhaka</p>
+              </div>
             </div>
-            <div className="flex items-center gap-1 text-slate-600 text-xs">
-              <SlCalender />
-              <p>Dhaka</p>
-            </div>
+            <h4 className="font-semibold">$4959</h4>
           </div>
-          <h4 className="font-semibold">$4959</h4>
         </div>
-      </div>
+      </Link>
 
       <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
         <img

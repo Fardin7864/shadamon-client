@@ -8,7 +8,8 @@ import { AuthContext } from "./AuthanticationContext";
 
 const SocialLogin = () => {
   const [loggedInUser, setLoggedInUser] = useState();
-  const { loginWithProvider, google, successToast, failToast, user } = useContext(AuthContext);
+  const { loginWithProvider, google, successToast, failToast, user } =
+    useContext(AuthContext);
 
   const handlePopup = (provider) => {
     loginWithProvider(provider)
@@ -25,18 +26,18 @@ const SocialLogin = () => {
         };
 
         fetch("https://shadamon-m-server.vercel.app/api/v1/users/add", {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(newUser),
         })
-        .then(response => response.json())
-        .then(data => setLoggedInUser(data))
-        .then(successToast())
-        .catch(() => {
-          failToast();
-        });
+          .then((response) => response.json())
+          .then((data) => setLoggedInUser(data))
+          .then(successToast())
+          .catch(() => {
+            failToast();
+          });
       })
       .catch(() => {
         failToast();
@@ -46,23 +47,24 @@ const SocialLogin = () => {
   return (
     <div className="px-10">
       <button
-        style={{ backgroundColor: "#4267a6" }}
-        className="flex items-center gap-2 rounded-md py-2 px-5 w-full text-white hover:opacity-65 active:opacity-30"
+        style={{ backgroundColor: "white" }}
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full text-black border hover:opacity-80 duration-300  active:opacity-30"
       >
-        <FaFacebookSquare className="text-white text-xl" /> Continue with Facebook
+        <FaFacebookSquare className="text-blue-900 text-xl" /> Continue with
+        Facebook
       </button>
 
       <button
         onClick={() => handlePopup(google)}
         style={{ backgroundColor: "white", marginTop: "8px" }}
-        className="flex items-center gap-2 rounded-md py-2 px-5 w-full border hover:opacity-65 active:opacity-30"
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full border hover:opacity-80 duration-300   active:opacity-30"
       >
         <FcGoogle className="text-white text-xl" /> Continue with Google
       </button>
 
       <button
         style={{ backgroundColor: "white", marginTop: "8px" }}
-        className="flex items-center gap-2 rounded-md py-2 px-5 w-full hover:opacity-65 active:opacity-30"
+        className="flex items-center gap-2 rounded-md py-2 px-5 w-full hover:opacity-80 duration-300 border  active:opacity-30"
       >
         <IoMail className="text-xl" /> Continue with Email
       </button>
