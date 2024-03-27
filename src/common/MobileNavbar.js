@@ -9,7 +9,6 @@ import { IoCallOutline, IoChatbubblesOutline ,IoMailOpenOutline, IoPersonOutline
 
 const MobileNavbar = () => {
   const location = usePathname();
-  console.log(location);
   return (
     <div>
       <div className=" flex justify-between w-[100vw] px-1 h-16 mb-5">

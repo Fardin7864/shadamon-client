@@ -53,7 +53,6 @@ const NewSubCategory = () => {
       };
       loader();
     }, [render]);
-    console.log(users);
   
     const handleDelete = async (id) => {
       try {
