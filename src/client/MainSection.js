@@ -33,7 +33,7 @@ const MainSection = () => {
         {/*  */}
         <div className="bg-slate-200 rounded-md mb-6">
           <img
-            className="rounded-lg w-[500px] h-[305px]"
+            className="rounded-lg md:w-[500px] w-[100%] h-[305px]"
             src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
             alt=""
           />
