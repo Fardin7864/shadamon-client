@@ -3,34 +3,56 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { FaMinus, FaPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
+
 
 const NewSubCategory = () => {
   const [users, setUsers] = useState([]);
   const [subCategoryNum, setSubCategoruNum] = useState([1]);
   const [tagNum, setTagNum] = useState([1]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedFeature, setSelectedFeature] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedFeature, setSelectedFeature] = useState("");
   const [selectedBtn, setSelectedBtn] = useState();
-  const [selectStatus, setStatus] = useState(true);
+  const [selectStatus, setStatus] = useState();
   const [formData, setFormData] = useState({
     subcategories: [],
-    category: selectedCategory,
-    feature: selectedFeature,
     tags: [],
-    buttonType: selectedBtn,
-    freePost: "",
-    ordering: "",
-    date: "",
-    file: "",
-    status: "Yes",
   });
 
-  const handleBtnChange = (e) => { 
-    setSelectedBtn(e.target.value)
-   }
-  const handleSelectStatus = (e) => { 
-    setStatus(e.target.value)
-   }
+  // Image upload on cloudinary
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleImageUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+    // console.log(e.target.files[0])
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://api.imgbb.com/1/upload?key=0ec4496118a1ca7ae17b424313985204",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+  
+      setImage(response.data.data.url); // Assuming ImgBB returns URL of the uploaded image
+      console.log("Image uploaded successfully:", response.data.data.url);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      setLoading(false);
+    }
+  };
+
+  // console.log(image)
+
+  const handleBtnChange = (e) => {
+    setSelectedBtn(e.target.value);
+  };
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -65,20 +87,29 @@ const NewSubCategory = () => {
     setFormData({ ...formData, tags: updatedTags });
   };
 
-  const handleCategory = (e) => {
+  const handleCategory = async (e) => {
     e.preventDefault();
     const newSub = {
       subcategories: formData.subcategories,
-      category: selectedCategory,
-      feature: selectedFeature,
+      // category: selectedCategory,
+      // feature: selectedFeature,
       tags: formData.tags,
       buttonType: selectedBtn,
       order: e.target.order.value,
       date: e.target.date.value,
       freePost: e.target.freePost.value,
-      file: e.target.pic.value,
+      img: image,
       status: selectStatus,
-    }
+    };
+
+    const res = await  axios.patch(
+      `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${selectedCategory}`,newSub
+    );
+    if(res.data.message) Swal.fire({
+      icon: "success",
+      title: "Successfully added!",
+      text: "Added new sub categoies!",
+    });
     // Handle form submission, you can use formData here to send the data
     console.log(newSub);
   };
@@ -114,6 +145,7 @@ const NewSubCategory = () => {
                   className=" border p-2 w-44 text-sm"
                 />
                 <button
+                  type="button"
                   onClick={() =>
                     setSubCategoruNum((prevSub) => [
                       ...prevSub,
@@ -125,6 +157,7 @@ const NewSubCategory = () => {
                   <FaPlus />
                 </button>
                 <button
+                  type="button"
                   onClick={() =>
                     setSubCategoruNum((prevSub) =>
                       prevSub.length > 1 ? prevSub.slice(0, -1) : prevSub
@@ -177,13 +210,12 @@ const NewSubCategory = () => {
                   type="text"
                   name="tagname"
                   // onChange={handleTagChange}
-                  onChange={(e) =>
-                    handleTagChange(index, e.target.value)
-                  }
+                  onChange={(e) => handleTagChange(index, e.target.value)}
                   placeholder="Tag Name"
                   className=" border p-2 w-44 text-sm"
                 />
                 <button
+                  type="button"
                   onClick={() =>
                     setTagNum((prevTag) => [...prevTag, prevTag.length + 1])
                   }
@@ -192,6 +224,7 @@ const NewSubCategory = () => {
                   <FaPlus />
                 </button>
                 <button
+                  type="button"
                   onClick={() =>
                     setTagNum((prevTag) =>
                       prevTag.length > 1 ? prevTag.slice(0, -1) : prevTag
@@ -252,10 +285,19 @@ const NewSubCategory = () => {
             <div className=" flex items-center gap-1 rounded-sm">
               <input
                 type="file"
-                name="pic"
+                name="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={loading}
                 placeholder="File Upload"
                 className=" border p-1 w-44 text-sm"
               />
+              {/* {loading && <p>Uploading...</p>} */}
+              {/* {image && (
+                <div>
+                  <img cloudName="dh20zdtys" publicId={image} alt="img"  width={100} height={100}/>
+                </div>
+              )} */}
             </div>
             {/* Status */}
             <div className=" flex gap-5 items-center rounded-sm w-44 ">
@@ -265,7 +307,7 @@ const NewSubCategory = () => {
                   type="radio"
                   name="status"
                   value={selectStatus}
-                  onChange={handleSelectStatus}
+                  onChange={() => setStatus(true)}
                   className=" border p-1 text-sm"
                 />{" "}
                 <span>Yes</span>
@@ -274,7 +316,8 @@ const NewSubCategory = () => {
                 <input
                   type="radio"
                   name="status"
-                  value="No"
+                  value={selectStatus}
+                  onChange={() => setStatus(false)}
                   className=" border p-1 text-sm"
                 />{" "}
                 <span>No</span>
@@ -284,7 +327,10 @@ const NewSubCategory = () => {
         </div>
         {/* buttons */}
         <div className=" flex gap-3 my-10">
-          <button className="hover:opacity-70 active:opacity-40 bg-[#0666cd] text-white py-1 text-center rounded-sm w-4/5">
+          <button
+            type="submit"
+            className="hover:opacity-70 active:opacity-40 bg-[#0666cd] text-white py-1 text-center rounded-sm w-4/5"
+          >
             Save
           </button>
           <button className="hover:opacity-70 active:opacity-40 py-1 text-center rounded-sm w-1/5 border">
