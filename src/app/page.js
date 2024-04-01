@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <main style={{ maxWidth: "1010px", margin: "auto" }}>
-        <div className=" flex justify-between gap:2 lg:gap-[50px] w-full">
+        <div className=" flex justify-between gap:2 lg:gap-[50px] w-full relative">
           <Sidebar />
 
           <MainSection />

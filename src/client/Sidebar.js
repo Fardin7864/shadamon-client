@@ -36,7 +36,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[250px] hidden lg:block">
+    <div className="w-[250px] hidden lg:block sticky top-0">
       <div className=" transition-all duration-300 transform top-0 start-0 bottom-0 z-[60] pt-[50px] pb-10 hidden lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 ">
         <nav
           className="w-full flex flex-col flex-wrap"

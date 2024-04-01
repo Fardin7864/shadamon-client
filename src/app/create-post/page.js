@@ -35,21 +35,21 @@ const CreatePost = () => {
   return (
     <div className="w-[500px] mx-auto pt-5 ">
       <div className="rounded-t-xl border border-gray-200 bg-[#f8f8f8]">
-        <div className="bg-pink-100 py-2 rounded-t-xl">
+        {/* <div className="bg-pink-100 py-2 rounded-t-xl">
           <h5 className="font-bold text-center">
             Your account successfully Created
           </h5>
-        </div>
+        </div> */}
 
-        <div className="flex flex-col items-center justify-center mt-3 mb-5">
+        {/* <div className="flex flex-col items-center justify-center mt-3 mb-5">
           <img className="h-[80px] mx-auto my-2" src="/loginlogo.png" alt="" />
           <p className="text-sm">Welcome Mohammad Ullah</p>
           <h4 className="font-bold text-lg">Post your Ad</h4>
           <p className="text-sm">Choice your option Below</p>
-        </div>
+        </div> */}
         {/* add photos */}
 
-        <div className="bg-white mx-4 p-4 border border-gray-200 shadow-lg">
+        <div className="bg-white mx-4 mt-4 p-4 border border-gray-200 shadow-lg">
           <div className="uploader mb-2  bg-white border border-gray-200 rounded-md">
             {/* File input for image selection */}
             <label htmlFor="imageInput" className="file-input-label">

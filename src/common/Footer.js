@@ -80,8 +80,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col justify-between">
-          <h4 className="font-bold text-base   text-slate-700">FOLLOW US</h4>
+        <div className="flex flex-col justify-between ">
+          <h4 className="font-bold text-base   text-slate-700 mb-5">
+            FOLLOW US
+          </h4>
           <div className="flex gap-2 items-center">
             <FaFacebookF className="text-slate-700 text-xl" />
             <FaInstagram className="border rounded-full border-slate-700 text-xl font-bold p-1 text-slate-700" />
