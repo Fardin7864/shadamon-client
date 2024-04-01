@@ -1,204 +1,125 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { FaMinus, FaPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
+
 
 const NewSubCategory = () => {
+  const [users, setUsers] = useState([]);
+  const [subCategoryNum, setSubCategoruNum] = useState([1]);
+  const [tagNum, setTagNum] = useState([1]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedFeature, setSelectedFeature] = useState("");
+  const [selectedBtn, setSelectedBtn] = useState();
+  const [selectStatus, setStatus] = useState();
+  const [formData, setFormData] = useState({
+    subcategories: [],
+    tags: [],
+  });
 
-    const [users, setUsers] = useState([]);
-    const [render, setRender] = useState(1);
-    const [editUserId, setEditUserId] = useState(null);
-    const [isLoading, setLoading] = useState(true);
-    const [subCategoryNum, setSubCategoruNum] = useState([1]);
-    const [tagNum, setTagNum] = useState([1]);
-    const [tagInputs, setTagInputs] = useState([{ tagname: "" }]);
-    const [formData, setFormData] = useState({
-      // Initialize form data state
-      subcategory: "",
-      category: "",
-      feature: "",
-      tagname: "",
-      buttonType: "text",
-      freePost: "",
-      ordering: "",
-      date: "",
-      file: null,
-      status: "Yes",
-      tagname: [],
-    });
-    const [editedUser, setEditedUser] = useState({
-      subcategory: "",
-      category: "",
-      order: "",
-      entrydate: "",
-      status: "",
-      createdby: "",
-      editBy: "",
-      input: "",
-      feature: "",
-      tagname: [],
-    });
-  
-    useEffect(() => {
-      const loader = async () => {
-        try {
-          const res = await axios.get(
-            "https://shadamon-m-server.vercel.app/api/v1/categorys"
-          );
-          setUsers(res.data?.data);
-          setLoading(false);
-        } catch (error) {
-          console.error("Error loading users:", error);
-        }
-      };
-      loader();
-    }, [render]);
-  
-    const handleDelete = async (id) => {
-      try {
-        await axios.delete(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`
-        );
-        setRender(render + 1);
-      } catch (error) {
-        console.error("Error deleting user:", error);
-      }
-    };
-  
-    const handleUpdate = async (id) => {
-      setEditUserId(id);
-      try {
-        const updateUser = await axios.get(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
-        );
-        const userData = updateUser.data?.data[0];
-        setEditedUser({
-          subcategory: userData.subcategory,
-          category: userData.category,
-          order: userData.order,
-          entrydate: userData.entrydate,
-          status: userData.status,
-          createdby: userData.createdby,
-          editBy: "Admin",
-          input: userData.input,
-          feature: userData.feature,
-        });
-      } catch (error) {
-        console.error("Error fetching user data for editing:", error);
-      }
-    };
-  
-    const handleSaveUpdate = async (id) => {
-      try {
-        await axios.patch(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
-          editedUser
-        );
-        console.log(editedUser);
-        setEditUserId(null);
-        setRender(render + 1);
-      } catch (error) {
-        console.error("Error updating user:", error);
-      }
-    };
-  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setEditedUser((prevUser) => ({
-        ...prevUser,
-        [name]: value,
-      }));
-    };
-  
+  // Image upload on cloudinary
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  
-    const handleAddSubcategory = () => {
-      setEditedUser((prevUser) => ({
-        ...prevUser,
-        subcategories: [...prevUser.subcategories, ""],
-      }));
-    };
-  
-    const handleSubcategoryChange = (index, value) => {
-      const updatedSubcategories = [...editedUser.subcategories];
-      updatedSubcategories[index] = value;
-      setEditedUser((prevUser) => ({
-        ...prevUser,
-        subcategories: updatedSubcategories,
-      }));
-    };
-  
-    const handleCategoryModal = async (e) => {
-      e.preventDefault();
-      try {
-        console.log(editedUser);
-        await axios.post(
-          "https://shadamon-m-server.vercel.app/api/v1/categorys/add",
-          editedUser
-        );
-        setEditedUser({
-          subcategory: "",
-          category: "",
-          order: "",
-          entrydate: "",
-          status: "",
-          createdby: "",
-          editBy: "",
-          input: "",
-          feature: "",
-        });
-        setRender(render + 1);
-        document.getElementById("my_modal_2").close();
-      } catch (error) {
-        console.error("Error creating category:", error);
-      }
-    };
-  
-    const handleInputChange = (e) => {
-      const { name, value, files } = e.target;
-      setFormData({
-        ...formData,
-        [name]: name === "file" ? files[0] : value, // Handle file input separately
-      });
-    };
-  
-    // Function to handle form submission
-    const handleCategory = async (e) => {
-      e.preventDefault();
-      try {
-        // Make PATCH request to your server with formData and resource identifier
-        const response = await fetch(`your-api-endpoint/${resourceId}`, {
-          method: "PATCH",
+  const handleImageUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+    // console.log(e.target.files[0])
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://api.imgbb.com/1/upload?key=0ec4496118a1ca7ae17b424313985204",
+        formData,
+        {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
-          body: JSON.stringify(formData),
-        });
-        const data = await response.json();
-        console.log("Updated data:", data);
+        }
+      );
+  
+      setImage(response.data.data.url); // Assuming ImgBB returns URL of the uploaded image
+      console.log("Image uploaded successfully:", response.data.data.url);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      setLoading(false);
+    }
+  };
+
+  // console.log(image)
+
+  const handleBtnChange = (e) => {
+    setSelectedBtn(e.target.value);
+  };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+  const handleFeature = (e) => {
+    setSelectedFeature(e.target.value);
+  };
+
+  useEffect(() => {
+    const loader = async () => {
+      try {
+        const res = await axios.get(
+          "https://shadamon-m-server.vercel.app/api/v1/categorys"
+        );
+        setUsers(res.data?.data);
       } catch (error) {
-        console.error("Error updating resource:", error);
+        console.error("Error loading users:", error);
       }
     };
-  
-    // Function to handle changes in tagname
-    const handleTagChange = (e) => {
-      const { value } = e.target;
-      // Assuming your input field is a text input
-      // If it's something else like a select or checkbox, you'd handle it differently
-      setEditedUser((prevState) => ({
-        ...prevState,
-        tagname: value.split(",").map((tag) => tag.trim()), // Splitting the input by comma and trimming each tag
-      }));
-    };
-  
-    const categories = users?.map(
-      (category, index) => category.category + "-" + category._id
-    );
-    const features = users?.map(
-      (feature, index) => feature.feature + "-" + feature._id
-    );
+    loader();
+  }, []);
 
+  const handleSubcategoryChange = (index, value) => {
+    const updatedSubcategories = [...formData.subcategories];
+    updatedSubcategories[index] = value;
+    setFormData({ ...formData, subcategories: updatedSubcategories });
+  };
+
+  const handleTagChange = (index, value) => {
+    const updatedTags = [...formData.tags];
+    updatedTags[index] = value;
+    setFormData({ ...formData, tags: updatedTags });
+  };
+
+  const handleCategory = async (e) => {
+    e.preventDefault();
+    const newSub = {
+      subcategories: formData.subcategories,
+      // category: selectedCategory,
+      // feature: selectedFeature,
+      tags: formData.tags,
+      buttonType: selectedBtn,
+      order: e.target.order.value,
+      date: e.target.date.value,
+      freePost: e.target.freePost.value,
+      img: image,
+      status: selectStatus,
+    };
+
+    const res = await  axios.patch(
+      `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${selectedCategory}`,newSub
+    );
+    if(res.data.message) Swal.fire({
+      icon: "success",
+      title: "Successfully added!",
+      text: "Added new sub categoies!",
+    });
+    // Handle form submission, you can use formData here to send the data
+    console.log(newSub);
+  };
+
+  const categories = users?.map(
+    (category, index) => category.category + "-" + category._id
+  );
+  const features = users?.map(
+    (feature, index) => feature.feature + "-" + feature._id
+  );
 
   return (
     <>
@@ -212,24 +133,31 @@ const NewSubCategory = () => {
           {/* 1st col  */}
           <div className=" flex flex-col gap-3">
             {/* sub category name */}
-            {subCategoryNum?.map((sub) => (
-              <div key={sub} className=" flex items-center gap-1 rounded-sm">
+            {subCategoryNum?.map((sub, index) => (
+              <div key={index} className=" flex items-center gap-1 rounded-sm">
                 <input
                   type="text"
                   name="subcategory"
-                  placeholder="Sub Categorie Name"
-                  onChange={handleSubcategoryChange}
+                  placeholder="Sub Category Name"
+                  onChange={(e) =>
+                    handleSubcategoryChange(index, e.target.value)
+                  }
                   className=" border p-2 w-44 text-sm"
                 />
                 <button
+                  type="button"
                   onClick={() =>
-                    setSubCategoruNum((prvsub) => [...prvsub, "2"])
+                    setSubCategoruNum((prevSub) => [
+                      ...prevSub,
+                      prevSub.length + 1,
+                    ])
                   }
                   className=" p-2 bg-gray-200 rounded-sm"
                 >
                   <FaPlus />
                 </button>
                 <button
+                  type="button"
                   onClick={() =>
                     setSubCategoruNum((prevSub) =>
                       prevSub.length > 1 ? prevSub.slice(0, -1) : prevSub
@@ -241,11 +169,12 @@ const NewSubCategory = () => {
                 </button>
               </div>
             ))}
-            {/* Categorie */}
+            {/* Category */}
             <div className=" border p-2  rounded-s2 w-44">
               <select
                 name="Category"
-                id=""
+                value={selectedCategory}
+                onChange={handleCategoryChange}
                 className=" outline-none border-none w-32 text-sm"
               >
                 <option>Select Category</option>
@@ -257,11 +186,12 @@ const NewSubCategory = () => {
                 ))}
               </select>
             </div>
-            {/* select feature  */}
+            {/* Select Feature  */}
             <div className=" border p-2  rounded-s2 w-44">
               <select
                 name="feature"
-                id=""
+                value={selectedFeature}
+                onChange={handleFeature}
                 className=" outline-none border-none w-32 text-sm"
               >
                 <option>Select Feature</option>
@@ -273,27 +203,31 @@ const NewSubCategory = () => {
                 ))}
               </select>
             </div>
-            {/* Tage name */}
+            {/* Tag Name */}
             {tagNum?.map((tag, index) => (
               <div key={tag} className=" flex items-center gap-1 rounded-sm">
                 <input
                   type="text"
                   name="tagname"
-                //   value={editedUser[index].tagname.join(",")}
-                  onChange={(e) => handleTagChange(e, index)}
+                  // onChange={handleTagChange}
+                  onChange={(e) => handleTagChange(index, e.target.value)}
                   placeholder="Tag Name"
                   className=" border p-2 w-44 text-sm"
                 />
                 <button
-                  onClick={() => setTagNum((prvsub) => [...prvsub, "2"])}
+                  type="button"
+                  onClick={() =>
+                    setTagNum((prevTag) => [...prevTag, prevTag.length + 1])
+                  }
                   className=" p-2 bg-gray-200 rounded-sm"
                 >
                   <FaPlus />
                 </button>
                 <button
+                  type="button"
                   onClick={() =>
-                    setTagNum((prevSub) =>
-                      prevSub.length > 1 ? prevSub.slice(0, -1) : prevSub
+                    setTagNum((prevTag) =>
+                      prevTag.length > 1 ? prevTag.slice(0, -1) : prevTag
                     )
                   }
                   className=" p-2 bg-gray-200 rounded-sm"
@@ -305,11 +239,12 @@ const NewSubCategory = () => {
           </div>
           {/* 2nd col in first half */}
           <div className=" flex flex-col gap-3">
-            {/* button type */}
+            {/* Button Type */}
             <div className=" border p-2  rounded-s2 w-44">
               <select
-                name="Category"
-                id=""
+                name="buttonType"
+                value={selectedBtn}
+                onChange={handleBtnChange}
                 className=" outline-none border-none w-32 text-sm "
               >
                 <option value="text">Button Type</option>
@@ -319,11 +254,11 @@ const NewSubCategory = () => {
                 <option value="input">Input</option>
               </select>
             </div>
-            {/* Free post */}
+            {/* Free Post */}
             <div className=" flex items-center gap-1 rounded-sm">
               <input
                 type="text"
-                name="subcategory"
+                name="freePost"
                 placeholder="Free post"
                 className=" border p-2 w-44 text-sm"
               />
@@ -331,9 +266,9 @@ const NewSubCategory = () => {
             {/* Ordering */}
             <div className=" flex items-center gap-1 rounded-sm">
               <input
-                type="text"
-                name="subcategory"
-                placeholder="Ordering"
+                type="number"
+                name="order"
+                placeholder="Order"
                 className=" border p-2 w-44 text-sm"
               />
             </div>
@@ -341,52 +276,61 @@ const NewSubCategory = () => {
             <div className=" flex items-center gap-1 rounded-sm">
               <input
                 type="date"
-                name="subcategory"
-                placeholder="Sub Categorie Name"
+                name="date"
+                placeholder="Date"
                 className=" border p-2 w-44 text-sm"
               />
             </div>
-            {/* file upload */}
+            {/* File Upload */}
             <div className=" flex items-center gap-1 rounded-sm">
               <input
                 type="file"
-                name="subcategory"
-                placeholder="Sub Categorie Name"
+                name="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={loading}
+                placeholder="File Upload"
                 className=" border p-1 w-44 text-sm"
               />
+              {/* {loading && <p>Uploading...</p>} */}
+              {/* {image && (
+                <div>
+                  <img cloudName="dh20zdtys" publicId={image} alt="img"  width={100} height={100}/>
+                </div>
+              )} */}
             </div>
             {/* Status */}
             <div className=" flex gap-5 items-center rounded-sm w-44 ">
               <h6>Status</h6>
               <div>
-                 <div>
                 <input
-                type="radio"
-                name="subcategory"
-                placeholder="Status"
-                className=" border p-1 text-sm"
-              />{" "}
-              <span>Yes</span>
+                  type="radio"
+                  name="status"
+                  value={selectStatus}
+                  onChange={() => setStatus(true)}
+                  className=" border p-1 text-sm"
+                />{" "}
+                <span>Yes</span>
               </div>
               <div>
-              
-              <input
-                type="radio"
-                name="subcategory"
-                placeholder="Status"
-                className=" border p-1 text-sm"
-              />{" "}
-              <span>No</span>  
+                <input
+                  type="radio"
+                  name="status"
+                  value={selectStatus}
+                  onChange={() => setStatus(false)}
+                  className=" border p-1 text-sm"
+                />{" "}
+                <span>No</span>
               </div>
-              </div>
-             
-
             </div>
           </div>
         </div>
         {/* buttons */}
         <div className=" flex gap-3 my-10">
-          <button className="hover:opacity-70 active:opacity-40 bg-[#0666cd] text-white py-1 text-center rounded-sm w-4/5">
+          <button
+            type="submit"
+            className="hover:opacity-70 active:opacity-40 bg-[#0666cd] text-white py-1 text-center rounded-sm w-4/5"
+          >
             Save
           </button>
           <button className="hover:opacity-70 active:opacity-40 py-1 text-center rounded-sm w-1/5 border">
