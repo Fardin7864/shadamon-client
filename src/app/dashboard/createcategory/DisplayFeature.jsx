@@ -44,6 +44,7 @@ const DisplayFeature = () => {
   // console.log(users);
 
   const handleDelete = async (id) => {
+    document.getElementById("my_modal_category").close();
     const feature = {
       featureBtnType: "",
       buttonItemName: "",
@@ -83,15 +84,6 @@ const DisplayFeature = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         removeFeature();
-        // try {
-        //   const res =  axios.patch(
-        //     `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,feature
-        //   );
-        //   setRender(render + 1);
-        //   console.log(res)
-        // } catch (error) {
-        //   console.error("Error deleting user:", error);
-        // }
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",

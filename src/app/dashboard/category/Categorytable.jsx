@@ -1,6 +1,7 @@
 "use client"
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const Categorytable = () => {
     const [users, setUsers] = useState([]);
@@ -31,12 +32,47 @@ const Categorytable = () => {
     }, [render]);
   
     const handleDelete = async (id) => {
-      try {
-        await axios.delete(`https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`);
-        setRender(render + 1);
-      } catch (error) {
-        console.error("Error deleting user:", error);
+      const removeFeature = async () => { 
+        
+        try {
+          await axios.delete(`https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`);
+          setRender(render + 1);
+        } catch (error) {
+          console.error("Error deleting user:", error);
+        }
+       }
+
+    // delete confirm swal
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeFeature();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Your imaginary file is safe :)",
+          icon: "error",
+        });
       }
+    });
+
+
     };
   
     const handleUpdate = async (id) => {

@@ -1,41 +1,43 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const DisplayCategory = () => {
+  const [users, setUsers] = useState([]);
+  const [render, setRender] = useState(1);
+  const [editUserId, setEditUserId] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  const [editedUser, setEditedUser] = useState({
+    subcategory: "",
+    category: "",
+    order: "",
+    entrydate: "",
+    status: "",
+    createdby: "",
+    editBy: "",
+    input: "",
+    feature: "",
+    tagname: [],
+  });
 
-    const [users, setUsers] = useState([]);
-    const [render, setRender] = useState(1);
-    const [editUserId, setEditUserId] = useState(null);
-    const [isLoading, setLoading] = useState(true);
-    const [editedUser, setEditedUser] = useState({
-      subcategory: "",
-      category: "",
-      order: "",
-      entrydate: "",
-      status: "",
-      createdby: "",
-      editBy: "",
-      input: "",
-      feature: "",
-      tagname: [],
-    });
-  
-    useEffect(() => {
-      const loader = async () => {
-        try {
-          const res = await axios.get(
-            "https://shadamon-m-server.vercel.app/api/v1/categorys"
-          );
-          setUsers(res.data?.data);
-          setLoading(false);
-        } catch (error) {
-          console.error("Error loading users:", error);
-        }
-      };
-      loader();
-    }, [render]);  
-    const handleDelete = async (id) => {
+  useEffect(() => {
+    const loader = async () => {
+      try {
+        const res = await axios.get(
+          "https://shadamon-m-server.vercel.app/api/v1/categorys"
+        );
+        setUsers(res.data?.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error loading users:", error);
+      }
+    };
+    loader();
+  }, [render]);
+  const handleDelete = async (id) => {
+    document.getElementById("my_modal_category").close();
+    const removeFeature = async () => {
       try {
         await axios.delete(
           `https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`
@@ -44,75 +46,106 @@ const DisplayCategory = () => {
       } catch (error) {
         console.error("Error deleting user:", error);
       }
-    }; 
-    const handleUpdate = async (id) => {
-      setEditUserId(id);
-      try {
-        const updateUser = await axios.get(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
-        );
-        const userData = updateUser.data?.data[0];
-        setEditedUser({
-          subcategory: userData.subcategory,
-          category: userData.category,
-          order: userData.order,
-          entrydate: userData.entrydate,
-          status: userData.status,
-          createdby: userData.createdby,
-          editBy: "Admin",
-          input: userData.input,
-          feature: userData.feature,
-        });
-      } catch (error) {
-        console.error("Error fetching user data for editing:", error);
-      }
-    }; 
-    const handleSaveUpdate = async (id) => {
-      try {
-        await axios.patch(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
-          editedUser
-        );
-        console.log(editedUser);
-        setEditUserId(null);
-        setRender(render + 1);
-      } catch (error) {
-        console.error("Error updating user:", error);
-      }
-    };  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setEditedUser((prevUser) => ({
-        ...prevUser,
-        [name]: value,
-      }));
-    };
-    const handleCategoryModal = async (e) => {
-      e.preventDefault();
-      try {
-        console.log(editedUser);
-        await axios.post(
-          "https://shadamon-m-server.vercel.app/api/v1/categorys/add",
-          editedUser
-        );
-        setEditedUser({
-          subcategory: "",
-          category: "",
-          order: "",
-          entrydate: "",
-          status: "",
-          createdby: "",
-          editBy: "",
-          input: "",
-          feature: "",
-        });
-        setRender(render + 1);
-        document.getElementById("my_modal_2").close();
-      } catch (error) {
-        console.error("Error creating category:", error);
-      }
     };
 
+    // delete confirm swal
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+      
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeFeature();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Your imaginary file is safe :)",
+          icon: "error",
+        });
+      }
+    });
+  };
+  const handleUpdate = async (id) => {
+    setEditUserId(id);
+    try {
+      const updateUser = await axios.get(
+        `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
+      );
+      const userData = updateUser.data?.data[0];
+      setEditedUser({
+        subcategory: userData.subcategory,
+        category: userData.category,
+        order: userData.order,
+        entrydate: userData.entrydate,
+        status: userData.status,
+        createdby: userData.createdby,
+        editBy: "Admin",
+        input: userData.input,
+        feature: userData.feature,
+      });
+    } catch (error) {
+      console.error("Error fetching user data for editing:", error);
+    }
+  };
+  const handleSaveUpdate = async (id) => {
+    try {
+      await axios.patch(
+        `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
+        editedUser
+      );
+      console.log(editedUser);
+      setEditUserId(null);
+      setRender(render + 1);
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+  const handleCategoryModal = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(editedUser);
+      await axios.post(
+        "https://shadamon-m-server.vercel.app/api/v1/categorys/add",
+        editedUser
+      );
+      setEditedUser({
+        subcategory: "",
+        category: "",
+        order: "",
+        entrydate: "",
+        status: "",
+        createdby: "",
+        editBy: "",
+        input: "",
+        feature: "",
+      });
+      setRender(render + 1);
+      document.getElementById("my_modal_2").close();
+    } catch (error) {
+      console.error("Error creating category:", error);
+    }
+  };
 
   return (
     <>
@@ -181,7 +214,6 @@ const DisplayCategory = () => {
                             <p>{user.input}</p>
                           )}
                         </td>
-
                         <td>
                           {editUserId === user._id ? (
                             <input
