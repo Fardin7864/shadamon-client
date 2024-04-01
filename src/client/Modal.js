@@ -32,9 +32,6 @@ const LoginModal = () => {
       >
         POST AD
       </button>
-      <button className=" bg-gray-200 p-2 rounded-full">
-        <FaCaretDown />
-      </button>
 
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         {/* login form */}

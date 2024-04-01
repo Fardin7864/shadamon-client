@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import { MdOutlineCategory } from "react-icons/md";
 import { IoLocation } from "react-icons/io5";
@@ -10,24 +11,98 @@ import { FcElectricalSensor } from "react-icons/fc";
 import { VscExtensions } from "react-icons/vsc";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { RxCross2 } from "react-icons/rx";
 
 const MainSection = () => {
+  // modal close
+  useEffect(() => {
+    const closeModalOnClickOutside = (event) => {
+      const modal = document.getElementById("my_modal_6");
+      if (event.target === modal) {
+        modal.close();
+      }
+    };
+    document.addEventListener("click", closeModalOnClickOutside);
+
+    return () => {
+      document.removeEventListener("click", closeModalOnClickOutside);
+    };
+  }, []);
+
+  //
+
+  const [searchVisible, setSearchVisible] = useState(false);
+  const toggleSearch = () => {
+    setSearchVisible(!searchVisible);
+  };
+
   return (
-    <div className="w-[500px] mx-auto mt-5 md:mt-0">
+    <div className="w-full md:w-[500px] mx-auto mt-0">
       <div className="">
         <div className="hidden md:flex justify-between bg-white px-3 py-2 mb-3 rounded-b-xl ">
-          <div className="flex items-center gap-2">
+          <button
+            onClick={() => document.getElementById("my_modal_6").showModal()}
+            className="flex items-center gap-2"
+          >
             <MdOutlineCategory />
-            <p className="font-semibold">Categories</p>
-          </div>
-          <div className="flex items-center gap-2">
+            <span className="font-semibold">Categories</span>
+          </button>
+          <button
+            onClick={() => document.getElementById("my_modal_6").showModal()}
+            className="flex items-center gap-2"
+          >
             <IoLocation />
             <p className="font-semibold">Location</p>
-          </div>
-          <div className="flex items-center gap-2">
+          </button>
+          <button className="flex items-center gap-2">
             <p className="font-semibold">Search</p>
             <FaMagnifyingGlass />
-          </div>
+          </button>
+        </div>
+
+        {/* for mobile device */}
+
+        <div className="flex md:hidden justify-between bg-white px-3 py-3 mb-3 rounded-b-xl ">
+          {searchVisible ? (
+            <>
+              <div className="flex items-center justify-center w-full">
+                <label className="input input-bordered  gap-2 w-[80%] flex items-center rounded-l-lg rounded-r-none h-8">
+                  <input type="text" className="" placeholder="Search" />
+                </label>
+                <button className="bg-[#fd6c16] text-white py-1 px-2 rounded-r-lg rounded-l-none">
+                  Submit
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_6").showModal()
+                }
+                className="flex items-center gap-2"
+              >
+                <MdOutlineCategory />
+                <span className="font-semibold">Categories</span>
+              </button>
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_6").showModal()
+                }
+                className="flex items-center gap-2"
+              >
+                <IoLocation />
+                <p className="font-semibold">Location</p>
+              </button>
+            </>
+          )}
+
+          {/*  */}
+          <button className="flex items-center gap-2" onClick={toggleSearch}>
+            <p className="font-semibold">Search</p>
+            <FaMagnifyingGlass />
+          </button>
         </div>
 
         {/*  */}
@@ -117,7 +192,10 @@ const MainSection = () => {
               <p>Dhaka</p>
             </div>
           </div>
-          <h4 className="font-semibold">$4959</h4>
+          <div className="flex justify-between">
+            <h4 className="font-semibold">$4959</h4>
+            <p className="text-xs mt-3">1 hour ago</p>
+          </div>
         </div>
       </div>
 
@@ -142,7 +220,10 @@ const MainSection = () => {
               <p>Dhaka</p>
             </div>
           </div>
-          <h4 className="font-semibold">$4959</h4>
+          <div className="flex justify-between">
+            <h4 className="font-semibold">$4959</h4>
+            <p className="text-xs mt-3">Just Now</p>
+          </div>
         </div>
       </div>
 
@@ -187,6 +268,52 @@ const MainSection = () => {
         </span>
         Load More
       </button>
+
+      <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
+        <div className=" w-[400px] mx-auto rounded-xl bg-gray-100 p-10 ">
+          <div className="flex justify-end">
+            <form method="dialog">
+              <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+                <RxCross2 />
+              </button>
+            </form>
+          </div>
+
+          <div className="flex flex-col items-center gap-5">
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text font-bold">Select Category</span>
+              </div>
+              <select className="select select-bordered">
+                <option disabled selected>
+                  Select Category
+                </option>
+                <option>Electronics</option>
+                <option>Mobiles</option>
+                <option>Vehicles</option>
+                <option>Property</option>
+                <option>Education</option>
+              </select>
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text font-bold">Select Location</span>
+              </div>
+              <select className="select select-bordered">
+                <option disabled selected>
+                  Select Location
+                </option>
+                <option>Dhaka</option>
+                <option>Chattogram</option>
+                <option>Sylhet</option>
+                <option>Khulna</option>
+                <option>Malibag</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
