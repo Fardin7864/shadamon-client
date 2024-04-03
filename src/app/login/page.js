@@ -77,7 +77,7 @@ const Login = () => {
         </div>
 
         {/* socila login section */}
-        <div className=" border">
+        <div className=" ">
           <SocialLogin />
         </div>
       </div>

@@ -13,6 +13,11 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
+import { MdCarpenter } from "react-icons/md";
+import { RiCellphoneFill } from "react-icons/ri";
 
 const MainSection = () => {
   // modal close
@@ -37,6 +42,17 @@ const MainSection = () => {
     setSearchVisible(!searchVisible);
   };
 
+  //
+  const [categories, setCategories] = useState(true);
+  const toggleCategories = () => {
+    setCategories(!categories);
+  };
+
+  const [sell, setSell] = useState(true);
+  const toggleSell = () => {
+    setSell(!sell);
+  };
+
   return (
     <div className="w-full md:w-[500px] mx-auto mt-0">
       <div className="">
@@ -49,7 +65,9 @@ const MainSection = () => {
             <span className="font-semibold">Categories</span>
           </button>
           <button
-            onClick={() => document.getElementById("my_modal_6").showModal()}
+            onClick={() =>
+              document.getElementById("my_modal_location").showModal()
+            }
             className="flex items-center gap-2"
           >
             <IoLocation />
@@ -270,7 +288,7 @@ const MainSection = () => {
       </button>
 
       <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
-        <div className=" w-[400px] mx-auto rounded-xl bg-gray-100 p-10 ">
+        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 p-10 ">
           <div className="flex justify-end">
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
@@ -284,33 +302,283 @@ const MainSection = () => {
               <div className="label">
                 <span className="label-text font-bold">Select Category</span>
               </div>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select Category
-                </option>
-                <option>Electronics</option>
-                <option>Mobiles</option>
-                <option>Vehicles</option>
-                <option>Property</option>
-                <option>Education</option>
-              </select>
             </label>
+            <ul>
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-lg font-semibold text-slate-700 justify-between pl-8"
+                  onClick={toggleSell}
+                >
+                  Sell{sell ? <FaAngleDown /> : <FaAngleUp />}
+                </button>
+              </li>
 
+              {sell && (
+                <>
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 text-md"
+                    >
+                      <FaCar />
+
+                      <span>
+                        <span className="text-blue-600">Electronics</span>
+                        <span className="text-slate-500 ml-1">(82,173)</span>
+                      </span>
+                    </button>
+                  </li>
+
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 text-md"
+                    >
+                      <RiCellphoneFill />
+
+                      <span>
+                        <span className="text-blue-600">Mobiles</span>
+                        <span className="text-slate-500 ml-1">(77,728)</span>
+                      </span>
+                    </button>
+                  </li>
+                </>
+              )}
+
+              <li>
+                <button
+                  type="button"
+                  className=" w-full text-start flex items-center gap-x-3 text-md text-gray-700 font-extrabold"
+                >
+                  <FaHome /> Home & Living
+                </button>
+
+                <ul>
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-md">
+                        <span className="text-blue-600">Vehicles</span>
+                        <span className="text-slate-500 ml-1">(26,937)</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-md">
+                        <span className="text-blue-600">Property</span>
+                        <span className="text-slate-500 ml-1">(20,377)</span>
+                      </span>
+                    </button>
+                  </li>
+
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-md">
+                        <span className="text-blue-600">Pets & Animals</span>
+                        <span className="text-slate-500 ml-1">(16,935)</span>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <RiCellphoneFill />
+
+                  <span>
+                    <span className="text-blue-600">Education</span>
+                    <span className="text-slate-500 ml-1">(3,219)</span>
+                  </span>
+                </button>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <MdCarpenter />
+
+                  <span>
+                    <span className="text-blue-600">Essentials</span>
+                    <span className="text-slate-500 ml-1">(3,074)</span>
+                  </span>
+                </button>
+              </li>
+
+              <li className="text-md text-slate-700 ml-7">Rent</li>
+              <li className="text-md text-slate-700 ml-7">Jobs</li>
+              <li className="text-md text-slate-700 ml-7">Offer</li>
+              <li className="text-md text-slate-700 ml-7">Bid</li>
+            </ul>
+          </div>
+        </div>
+      </dialog>
+
+      <dialog
+        id="my_modal_location"
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 p-5 ">
+          <div className="flex justify-end">
+            <form method="dialog">
+              <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+                <RxCross2 />
+              </button>
+            </form>
+          </div>
+
+          <div className="flex flex-col items-center gap-5">
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text font-bold">Select Location</span>
               </div>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Select Location
-                </option>
-                <option>Dhaka</option>
-                <option>Chattogram</option>
-                <option>Sylhet</option>
-                <option>Khulna</option>
-                <option>Malibag</option>
-              </select>
             </label>
+            <ul>
+              <li>
+                <button
+                  type="button"
+                  className=" w-full text-start flex items-center gap-x-3 text-md text-gray-700 font-extrabold"
+                >
+                  <FaHome />
+                  All of Bangladesh
+                </button>
+              </li>
+
+              <li className="hs-accordion" id="users-accordion">
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <span>
+                    <span className="text-blue-600">Dhaka</span>
+                    <span className="text-slate-500 ml-1">(176,038)</span>
+                  </span>
+                </button>
+                <ul>
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-sm text-blue-600">
+                        <span className="">Malibag</span>
+                        <span className=" ml-1 ">(5467)</span>
+                      </span>
+                    </button>
+                  </li>
+
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-sm text-blue-600">
+                        <span className="">Rampura</span>
+                        <span className=" ml-1 ">(54215)</span>
+                      </span>
+                    </button>
+                  </li>
+
+                  <li>
+                    <button
+                      type="button"
+                      className="w-full text-start flex items-center gap-x-3 pl-7"
+                    >
+                      <span className="text-[9px] text-gray-500">
+                        <FaCircle />
+                      </span>
+
+                      <span className="text-sm text-blue-600">
+                        <span className="">Gulshan</span>
+                        <span className=" ml-1 ">(3625)</span>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <span>
+                    <span className="text-blue-600">Chattogram</span>
+                    <span className="text-slate-500 ml-1">(30,519)</span>
+                  </span>
+                </button>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <span>
+                    <span className="text-blue-600">Dhaka Division</span>
+                    <span className="text-slate-500 ml-1">(16,650)</span>
+                  </span>
+                </button>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <span>
+                    <span className="text-blue-600">Sylhet</span>
+                    <span className="text-slate-500 ml-1">(12,554)</span>
+                  </span>
+                </button>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  className="w-full text-start flex items-center gap-x-3 text-md"
+                >
+                  <span>
+                    <span className="text-blue-600">Khulna</span>
+                    <span className="text-slate-500 ml-1">(9,862)</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </dialog>
