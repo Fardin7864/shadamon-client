@@ -30,6 +30,7 @@ const Categorytable = () => {
       };
       loader();
     }, [render]);
+    console.log(users)
   
     const handleDelete = async (id) => {
       const removeFeature = async () => { 
@@ -135,7 +136,7 @@ const Categorytable = () => {
                     className="border p-2"
                   />
                 ) : (
-                  <p>{user.subcategory}</p>
+                  <p>{user.subcategories[0]}</p>
                 )}
               </td>
               <td>
