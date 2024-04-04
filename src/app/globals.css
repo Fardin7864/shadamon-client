@@ -100,6 +100,7 @@ input[type="range"]::-moz-range-thumb {
   align-items: start;
 }
 
+
 .date-input-container {
   position: relative;
 }
@@ -121,3 +122,12 @@ input[type="range"]::-moz-range-thumb {
   display: block;
   opacity: 1;
 }
+
+.custom-swal-container {
+  z-index: 99999 !important; /* You can adjust the z-index value as needed */
+}
+
+.custom-swal-popup {
+  z-index: 100000 !important; /* You can adjust the z-index value as needed */
+}
+
