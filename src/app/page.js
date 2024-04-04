@@ -7,12 +7,10 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <main style={{ maxWidth: "1010px", margin: "auto" }}>
-        <div className=" flex justify-between gap:2 lg:gap-[50px] w-full relative">
+        <div className=" flex justify-between gap:2 lg:gap-[50px] w-full relative lg:-ml-[45px]">
           <Sidebar />
-
           <MainSection />
-
-          <div className="w-[160px] pt-[50px] hidden lg:flex justify-center ">
+          <div className="w-[160px] pt-[50px] hidden lg:flex justify-center">
             <Image
               src="/left-banner.jpg"
               alt="sidebar ad"

@@ -34,7 +34,7 @@ const LoginModal = () => {
 
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         {/* login form */}
-        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 pt-3 px-3 pb-10">
+        <div className=" w-[500px] ml-[0px] rounded-xl bg-gray-100 pt-3 px-3 pb-10">
           {/* arow and cross */}
           <form method="dialog">
             <div className="flex justify-between items-center">

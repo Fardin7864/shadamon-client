@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <AuthanticationProvider>
       <html lang="en">
         <body className={inter.className}>
-          <div className=" border-2 hidden md:block">
+          <div className=" border-2 hidden md:block lg:-ml-[45px]">
             <Navbar />
           </div>
           <div className=" border-2 block md:hidden ">
