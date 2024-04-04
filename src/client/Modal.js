@@ -4,7 +4,6 @@ import SocialLogin from "@/common/SocialLogin";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import { FaCaretDown } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 
@@ -35,7 +34,7 @@ const LoginModal = () => {
 
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         {/* login form */}
-        <div className=" max-w-[500px] mx-auto rounded-xl bg-gray-100 pt-3 px-3 pb-10">
+        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 pt-3 px-3 pb-10">
           {/* arow and cross */}
           <form method="dialog">
             <div className="flex justify-between items-center">

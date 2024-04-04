@@ -45,36 +45,35 @@ input[type="range"] {
   width: 100%;
   cursor: pointer;
   outline: none;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 16px;
 }
 
 /* Track: webkit browsers */
 input[type="range"]::-webkit-slider-runnable-track {
-  height: 15px;
+  height: 7px !important;
   background: #ccc;
   border-radius: 16px;
 }
-
-/* Track: Mozilla Firefox */
-input[type="range"]::-moz-range-track {
-  height: 15px;
-  background: #ccc;
-  border-radius: 16px;
-}
-
 /* Thumb: webkit */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 15px;
-  width: 15px;
+  margin-top: -7px;
+  height: 20px !important;
+  width: 20px !important;
   background-color: #fff;
   border-radius: 50%;
   border: 2px solid #f50;
-  box-shadow: -407px 0 0 400px #f50;
+  /* box-shadow: -10px 0 0 10px #f50; */
 }
 
+/* Track: Mozilla Firefox */
+input[type="range"]::-moz-range-track {
+  height: 7px !important;
+  background: #ccc;
+  border-radius: 16px;
+}
 /* Thumb: Firefox */
 input[type="range"]::-moz-range-thumb {
   height: 15px;
@@ -101,6 +100,29 @@ input[type="range"]::-moz-range-thumb {
   align-items: start;
 }
 
+
+.date-input-container {
+  position: relative;
+}
+.date-input-container .react-datepicker {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1;
+}
+
+/*  */
+.post-thumbnail button {
+  /* display: none; */
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.post-thumbnail:hover button {
+  display: block;
+  opacity: 1;
+}
+
 .custom-swal-container {
   z-index: 99999 !important; /* You can adjust the z-index value as needed */
 }
@@ -108,3 +130,4 @@ input[type="range"]::-moz-range-thumb {
 .custom-swal-popup {
   z-index: 100000 !important; /* You can adjust the z-index value as needed */
 }
+

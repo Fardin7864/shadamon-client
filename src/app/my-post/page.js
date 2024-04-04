@@ -1,60 +1,22 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
 import { FaMinus } from "react-icons/fa";
 import { IoBagRemoveSharp } from "react-icons/io5";
 import { IoHourglassSharp } from "react-icons/io5";
-import { FiPlusCircle } from "react-icons/fi";
-import { FiMinusCircle } from "react-icons/fi";
-import { TbCurrencyTaka } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
-import { SlCalender } from "react-icons/sl";
 import Link from "next/link";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { MdOutlineOpenInNew } from "react-icons/md";
 
 //
 
 const MyPost = () => {
-  const [day, setDay] = useState(1);
-
-  const incrementDay = () => {
-    setDay(day + 1);
-  };
-
-  const decrementDay = () => {
-    if (day > 1) {
-      setDay(day - 1);
-    }
-  };
-
-  // range
-  const [value, setValue] = useState(40);
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  // date
-
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(false);
-
-  const handleInputChange = (date) => {
-    setSelectedDate(date);
-    setShowCalendar(false);
-  };
-
-  const toggleCalendar = () => {
-    setShowCalendar(!showCalendar);
-  };
-
   return (
     <div className="w-[500px]  mx-auto pt-5 ">
-      <div className="rounded-t-xl border border-gray-200  bg-[#f8f8f8]">
-        <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white">
-          <div className="flex gap-3">
+      <div className="rounded-t-xl border border-gray-200  bg-white">
+        <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white border-b border-slate-300">
+          <div className="flex gap-3 ">
             <button className="border  px-2 py-1 rounded-md bg-[#fb6320] text-white text-sm">
               My Post
             </button>
@@ -122,159 +84,62 @@ const MyPost = () => {
         {/*  */}
 
         <div className="flex gap-3 rounded-lg bg-white border-2 m-3">
-          <img
-            className="h-[90px] w-[120px] rounded-lg"
-            src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
-            alt=""
-          />
-          <div className="flex flex-col justify-center">
-            <h2 className="text-sm">Apple IPhone 45M</h2>
-            <p className="text-xs">
-              342234323, 25 oct, 2021 <br />
-              Mobile Phone, Dhaka
-            </p>
-            <div>
-              <h5 className="font-semibold text-sm mt-1">View: 55214</h5>
-              <div>{/* icon edit icon delete */}</div>
-            </div>
-          </div>
-        </div>
-
-        {/*  */}
-        <div className="mx-3">
-          <button className="bg-[#fb6320] font-bold w-full py-2 text-white my-5 rounded-md ">
-            Promote this Post/Running/Again
-          </button>
-        </div>
-
-        {/*  */}
-        <div className="flex gap-3 rounded-lg bg-white border-2 m-3">
-          <img
-            className="h-[90px] w-[120px] rounded-lg"
-            src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
-            alt=""
-          />
-          <div className="flex flex-col justify-center">
-            <h2 className="text-sm">Apple IPhone 45M</h2>
-            <p className="text-xs">
-              342234323, 25 oct, 2021 <br />
-              Mobile Phone, Dhaka
-            </p>
-            <div>
-              <h5 className="font-semibold text-sm mt-1">View: 55214</h5>
-              <div>{/* icon edit icon delete */}</div>
-            </div>
-          </div>
-        </div>
-        {/*  */}
-
-        <hr className="m-3" />
-
-        <div className="mx-3">
-          <h5 className="font-semibold">Duration</h5>
-          <div className="flex gap-3 justify-between">
-            <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around">
-              <h2 className="font-semibold">
-                Days <br /> {day}
-              </h2>
-              <button onClick={incrementDay} className="text-3xl">
-                <FiPlusCircle />
-              </button>
-              <button onClick={decrementDay} className="text-3xl">
-                <FiMinusCircle />
-              </button>
-            </div>
-            {/*  */}
-            {/* <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around items-center">
-              <SlCalender onClick={toggleCalendar} className="text-2xl" />
-
-              <div>
-                <p className="text-sm font-semibold">End Date</p>
-                <p className="text-sm font-semibold">
-                  {selectedDate && (
-                    <span className="selected-date">
-                      {selectedDate.toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
-                  )}
-                </p>
-              </div>
-            </div> */}
-
-            {/*  */}
-            <div className="flex border-2 w-1/2 px-2 py-1 rounded-lg justify-around">
-              <div className="icon-wrapper ">
-                <button onClick={toggleCalendar}>
-                  <SlCalender className="text-2xl" />
-                </button>
-
-                <div className="date-text-wrapper">
-                  <p className="font-semibold">End Date</p>
-                  {selectedDate && (
-                    <span className="font-semibold">
-                      {selectedDate.toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-end">
-            {showCalendar && (
-              <DatePicker
-                onClickOutside={toggleCalendar}
-                selected={selectedDate}
-                onChange={handleInputChange}
-                inline
-                dateFormat="MMMM d, yyyy"
-              />
-            )}
-          </div>
-          {/*  */}
-
-          <h4 className="font-semibold text-sm mt-3">
-            Promotion Performance Estimated
-          </h4>
-          <h4 className="border-2 border-gray-300 py-2 px-5 rounded-lg mb-5 text-gray-500">
-            <span className="font-bold text-gray-900">100-200</span> people See
-          </h4>
-        </div>
-
-        <hr className="m-3" />
-
-        {/*  */}
-
-        <h4 className="font-semibold text-sm mt-3 mx-3">Budget</h4>
-
-        {/*  */}
-
-        <div className="mx-3">
-          <h5 className="flex text-xl mb-4 justify-center text-[#fb6320]">
-            <TbCurrencyTaka />
-            <span className="text-4xl font-extrabold">{value}</span>
-          </h5>
-
-          <div className="range">
-            <input
-              type="range"
-              min={100}
-              max={1500}
-              value={value}
-              onChange={handleChange}
+          <div className="relative post-thumbnail">
+            <img
+              className="h-[90px] w-[120px] rounded-lg"
+              src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+              alt=""
             />
+            <button className="absolute top-1 left-1 flex items-center text-xs font-bold bg-white rounded-md p-1">
+              See Live <MdOutlineOpenInNew />
+            </button>
           </div>
 
-          <button className="bg-[#fb6320] font-bold w-full py-2 text-white my-5 rounded-md ">
-            Continue
-          </button>
+          <div className="flex flex-col justify-center">
+            <h2 className="text-sm">Apple IPhone 45M</h2>
+            <p className="text-xs">
+              342234323, 25 oct, 2021 <br />
+              Mobile Phone, Dhaka
+            </p>
+            <div className="flex justify-between items-center w-full">
+              <h5 className="font-semibold text-sm mt-1">View: 55214</h5>
+            </div>
+          </div>
+
+          <div className="flex gap-1 justify-end items-end ml-14">
+            <div>
+              <input
+                type="checkbox"
+                className="toggle toggle-success toggle-xs -mb-2"
+              />
+              <p className="text-xs">On/Ps</p>
+            </div>
+            <div>
+              <div className="border rounded-full h-[15px] w-[15px]  flex items-center justify-center border-gray-500 p-[3px]">
+                <button className="bg-blue-600 h-[9px] w-[9px]  rounded-full"></button>
+              </div>
+              <p className="text-xs">Edit</p>
+            </div>
+            <div>
+              <div className="border rounded-full h-[15px] w-[15px]  flex items-center justify-center border-gray-500 p-[3px]">
+                <button className="bg-red-600 h-[9px] w-[9px]  rounded-full"></button>
+              </div>
+              <p className="text-xs">Delete</p>
+            </div>
+          </div>
         </div>
+        <hr className="mx-3" />
+        {/*  */}
+        <div className="mx-3 my-4">
+          <Link
+            href={"/promote-post"}
+            className="bg-[#fb6320] block font-bold w-full py-2 text-white my-5 rounded-md text-center"
+          >
+            Promote this Post/Running/Again
+          </Link>
+        </div>
+
+        {/*  */}
       </div>
     </div>
   );

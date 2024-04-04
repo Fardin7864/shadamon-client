@@ -4,6 +4,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMail } from "react-icons/io5";
 import { AuthContext } from "./AuthanticationContext";
+import Link from "next/link";
 // import { AuthContext } from "./AuthenticationContext";
 
 const SocialLogin = () => {
@@ -62,12 +63,13 @@ const SocialLogin = () => {
         <FcGoogle className="text-white text-xl" /> Continue with Google
       </button>
 
-      <button
+      <Link
+        href={"/register"}
         style={{ backgroundColor: "white", marginTop: "8px" }}
         className="flex items-center gap-2 rounded-md py-2 px-5 w-full hover:opacity-80 duration-300 border  active:opacity-30"
       >
         <IoMail className="text-xl" /> Continue with Email
-      </button>
+      </Link>
     </div>
   );
 };
