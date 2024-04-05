@@ -19,7 +19,10 @@ import Link from "next/link";
 
 const Details = () => {
   return (
-    <div style={{ maxWidth: "500px" }} className=" mx-auto bg-white">
+    <div
+      // style={{ maxWidth: "500px" }}
+      className="w-full md:w-[500px] mx-auto bg-white"
+    >
       <div>
         <div>
           <img
@@ -176,12 +179,12 @@ const Details = () => {
         </div>
       </div>
       {/*  */}
-      <div className="mx-3 mt-3">
+      <div className="mx-3 mt-3 mb-20 md:mb-0">
         <h3 className="font-bold mb-2">Similar Product</h3>
         <div>
           <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
             <img
-              className="h-[100px] w-[130px] rounded-lg"
+              className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
               src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
               alt=""
             />

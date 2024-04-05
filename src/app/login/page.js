@@ -6,7 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Login = () => {
   return (
-    <div className=" bg-white pt-3">
+    <div className=" bg-white pt-3 ">
       {/* logo */}
       <div className=" flex justify-center mt-5 mb-2">
         <Image
@@ -18,7 +18,7 @@ const Login = () => {
         />
       </div>
       {/* login form */}
-      <div className=" max-w-[500px] mx-auto border h-[100vh] rounded-t-xl bg-gray-100 border-gray-600 pt-3 px-3">
+      <div className="w-full md:max-w-[500px] mx-auto border rounded-t-xl bg-gray-100 border-gray-600 pt-3 px-3 mb-20 md:mb-5 pb-3">
         {/* arow and cross */}
         <div className="flex justify-between items-center">
           <Link href={"/"}>

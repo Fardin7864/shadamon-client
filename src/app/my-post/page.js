@@ -13,7 +13,7 @@ import { MdOutlineOpenInNew } from "react-icons/md";
 
 const MyPost = () => {
   return (
-    <div className="w-[500px]  mx-auto pt-5 ">
+    <div className="w-full md:w-[500px]  mx-auto pt-5 mb-20 md:mb-0">
       <div className="rounded-t-xl border border-gray-200  bg-white">
         <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white border-b border-slate-300">
           <div className="flex gap-3 ">
