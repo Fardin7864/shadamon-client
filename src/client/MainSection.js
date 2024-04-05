@@ -44,9 +44,9 @@ const MainSection = () => {
 
   //
   const [categories, setCategories] = useState(true);
-  const toggleCategories = () => {
-    setCategories(!categories);
-  };
+  // const toggleCategories = () => {
+  //   setCategories(!categories);
+  // };
 
   const [sell, setSell] = useState(true);
   const toggleSell = () => {
@@ -81,12 +81,12 @@ const MainSection = () => {
 
         {/* for mobile device */}
 
-        <div className="flex md:hidden justify-between bg-white px-3 py-3 mb-3 rounded-b-xl ">
+        <div className="flex md:hidden justify-between bg-white px-2 py-3 mb-3 rounded-b-xl w-full">
           {searchVisible ? (
             <>
-              <div className="flex items-center justify-center w-full">
-                <label className="input input-bordered  gap-2 w-[80%] flex items-center rounded-l-lg rounded-r-none h-8">
-                  <input type="text" className="" placeholder="Search" />
+              <div className="flex items-center justify-center">
+                <label className="input input-bordered  gap-2  flex items-center rounded-l-lg rounded-r-none h-8">
+                  <input type="text" className="w-[70%]" placeholder="Search" />
                 </label>
                 <button className="bg-[#fd6c16] text-white py-1 px-2 rounded-r-lg rounded-l-none">
                   Submit
@@ -106,7 +106,7 @@ const MainSection = () => {
               </button>
               <button
                 onClick={() =>
-                  document.getElementById("my_modal_6").showModal()
+                  document.getElementById("my_modal_location").showModal()
                 }
                 className="flex items-center gap-2"
               >
@@ -165,7 +165,7 @@ const MainSection = () => {
       <Link href="/details">
         <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
           <img
-            className="h-[100px] w-[130px] rounded-lg"
+            className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
             src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
             alt=""
           />
@@ -191,7 +191,7 @@ const MainSection = () => {
 
       <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
         <img
-          className="h-[100px] w-[130px] rounded-lg"
+          className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
           src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
           alt=""
         />
@@ -219,7 +219,7 @@ const MainSection = () => {
 
       <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
         <img
-          className="h-[100px] w-[130px] rounded-lg"
+          className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
           src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
           alt=""
         />
@@ -247,12 +247,12 @@ const MainSection = () => {
 
       {/* filter */}
 
-      <div className="bg-white px-8 py-3 rounded-lg mb-10 ">
+      <div className="bg-white px-2 md:px-8 py-3 rounded-lg mb-10 ">
         <div className="flex items-center gap-3">
           <FaKhanda />
           <h5>See Product From your Suitable Categorie</h5>
         </div>
-        <div className="flex mt-3 gap-3">
+        <div className="flex mt-3 gap-1 md:gap-3">
           <button className="flex border-2 px-3 py-1 items-center rounded-xl gap-2 shadow-lg">
             <span className="text-green-600">
               <BiSolidCategory />
@@ -280,15 +280,17 @@ const MainSection = () => {
         </div>
       </div>
 
-      <button className="border-2 border-gray-100 shadow flex items-center justify-center w-[500px] rounded-t-xl bg-white py-3 mb-5 gap-2 font-bold">
+      {/* load more btn */}
+      <button className="border-2 border-gray-100 shadow flex items-center justify-center w-full md:w-[500px] rounded-t-xl bg-white py-3 mb-5 gap-2 font-bold">
         <span>
           <MdOutlineKeyboardDoubleArrowRight className="border rounded-full border-black text-black text-xl font-bold" />
         </span>
         Load More
       </button>
 
+      {/* category */}
       <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
-        <div className=" w-[500px] rounded-xl bg-gray-100 p-10 ">
+        <div className="w-full  md:w-[500px] rounded-xl bg-gray-100 p-2 md:p-10 ">
           <div className="flex justify-end">
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
@@ -441,11 +443,12 @@ const MainSection = () => {
         </div>
       </dialog>
 
+      {/* location */}
       <dialog
         id="my_modal_location"
         className="modal modal-bottom sm:modal-middle"
       >
-        <div className=" w-[500px] rounded-xl bg-gray-100 p-5 ">
+        <div className=" w-full  md:w-[500px] rounded-xl bg-gray-100 p-5 ">
           <div className="flex justify-end">
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
