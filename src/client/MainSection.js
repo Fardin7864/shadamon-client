@@ -288,7 +288,7 @@ const MainSection = () => {
       </button>
 
       <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
-        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 p-10 ">
+        <div className=" w-[500px] rounded-xl bg-gray-100 p-10 ">
           <div className="flex justify-end">
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
@@ -445,7 +445,7 @@ const MainSection = () => {
         id="my_modal_location"
         className="modal modal-bottom sm:modal-middle"
       >
-        <div className=" w-[500px] ml-[90px] rounded-xl bg-gray-100 p-5 ">
+        <div className=" w-[500px] rounded-xl bg-gray-100 p-5 ">
           <div className="flex justify-end">
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
