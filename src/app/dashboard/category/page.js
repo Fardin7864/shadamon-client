@@ -66,12 +66,6 @@ const page = () => {
         </div>
       </div>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_category").showModal()}
-      >
-        open modal
-      </button>
       <dialog id="my_modal_category" className="modal">
         <div style={{ maxWidth: "70vw" }} className="modal-box w-full">
           <form method="dialog" className=" w-full">
