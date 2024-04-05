@@ -21,9 +21,11 @@ const MyPage = () => {
                 My Profile
               </button>
             </Link>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              Settings
-            </button>
+            <Link href="/settings">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                Settings
+              </button>
+            </Link>
           </div>
 
           <button className="bg-gray-300 rounded-full h-8 w-8 hover:bg-black duration-300 hover:text-white text-2xl flex justify-center items-center">
