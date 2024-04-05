@@ -25,9 +25,11 @@ const MyPost = () => {
                 My Profile
               </button>
             </Link>
-            <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
-              Settings
-            </button>
+            <Link href="/settings">
+              <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
+                Settings
+              </button>
+            </Link>
             <Link href="/my-page">
               <button className="border border-gray-400 px-2 py-1 rounded-md hover:bg-[#fb6320] hover:text-white duration-300 text-sm">
                 My Page
