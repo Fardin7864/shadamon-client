@@ -178,35 +178,164 @@ const Details = () => {
           <hr />
         </div>
       </div>
-      {/*  */}
+
+      {/* similar product - 5  */}
       <div className="mx-3 mt-3 mb-20 md:mb-0">
         <h3 className="font-bold mb-2">Similar Product</h3>
-        <div>
-          <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
-            <img
-              className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
-              src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
-              alt=""
-            />
-            <div>
-              <h2 className="font-semibold text-md mt-1">
-                Oxygen Taipei NTU Oxygen Gongguan
-              </h2>
-              <h2 className="font-semibold text-md -mt-2">Taipei NTU Oxygen</h2>
-              <div className="flex gap-3">
-                <div className="flex items-center gap-1 text-slate-600 text-xs">
-                  <IoLocation />
-                  <p>Dhaka</p>
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-slate-600 text-xs">
-                  <SlCalender />
-                  <p>Dhaka</p>
-                </div>
+                <h4 className="font-semibold">$4959</h4>
               </div>
-              <h4 className="font-semibold">$4959</h4>
             </div>
           </div>
-        </div>
+        </Link>
+        {/*  */}
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

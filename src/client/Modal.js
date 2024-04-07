@@ -27,7 +27,7 @@ const LoginModal = () => {
     <>
       <button
         onClick={() => document.getElementById("my_modal_5").showModal()}
-        className=" bg-[#fb6320] text-[.68rem] font-medium py-2 text-white px-10 rounded-full"
+        className=" bg-[#fb6320] text-[.68rem] font-medium py-2 text-white px-9 rounded-full"
       >
         POST AD
       </button>
