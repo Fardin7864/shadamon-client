@@ -9,7 +9,7 @@ const RegisterPage = () => {
   return (
     <>
       <div className="bg-gray-100 pt-5">
-        <div className=" max-w-[500px] mx-auto border h-[100vh] rounded-t-xl bg-slate-100  border-gray-400 pt-3 px-3">
+        <div className=" max-w-[500px] mx-auto border mb-20 md:mb-3 rounded-t-xl bg-slate-100  border-gray-400 pt-3 px-3">
           {/* arrow and cross */}
           <div className="flex justify-between items-center">
             <Link href={"/"}>

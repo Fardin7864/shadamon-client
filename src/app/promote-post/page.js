@@ -50,7 +50,7 @@ const PromotePost = () => {
     setShowCalendar(!showCalendar);
   };
   return (
-    <div className="w-[500px]  mx-auto pt-5 ">
+    <div className="w-full md:w-[500px]  mx-auto pt-5 mb-20 md:mb-0">
       {/* promote post detail */}
       <div className="rounded-t-xl border border-gray-200  bg-white">
         <div className="flex justify-between items-center mt-3 mx-3">

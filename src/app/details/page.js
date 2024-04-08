@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import { IoEye } from "react-icons/io5";
 import { HiSpeakerWave } from "react-icons/hi2";
@@ -16,10 +17,14 @@ import { FaShareAltSquare } from "react-icons/fa";
 import { FaExclamationCircle } from "react-icons/fa";
 import { MdOutlineNotInterested } from "react-icons/md";
 import Link from "next/link";
+import { RxCross2 } from "react-icons/rx";
 
 const Details = () => {
   return (
-    <div style={{ maxWidth: "500px" }} className=" mx-auto bg-white">
+    <div
+      // style={{ maxWidth: "500px" }}
+      className="w-full md:w-[500px] mx-auto bg-white"
+    >
       <div>
         <div>
           <img
@@ -160,8 +165,16 @@ const Details = () => {
 
           <hr />
 
+          {/* close detail btn */}
+
           <div className="my-4 flex justify-center items-center gap-2">
-            <FaExclamationCircle className="text-2xl" />
+            <button
+              onClick={() =>
+                document.getElementById("my_modal_report").showModal()
+              }
+            >
+              <FaExclamationCircle className="text-2xl" />
+            </button>
             <FaHeartCirclePlus className="text-3xl" />
             <Link href="/">
               <button className="bg-slate-900 text-white py-2 px-3 rounded-l-2xl rounded-r-2xl">
@@ -175,36 +188,223 @@ const Details = () => {
           <hr />
         </div>
       </div>
-      {/*  */}
-      <div className="mx-3 mt-3">
+
+      {/* similar product - 5  */}
+      <div className="mx-3 mt-3 mb-20 md:mb-0">
         <h3 className="font-bold mb-2">Similar Product</h3>
-        <div>
-          <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
-            <img
-              className="h-[100px] w-[130px] rounded-lg"
-              src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
-              alt=""
-            />
-            <div>
-              <h2 className="font-semibold text-md mt-1">
-                Oxygen Taipei NTU Oxygen Gongguan
-              </h2>
-              <h2 className="font-semibold text-md -mt-2">Taipei NTU Oxygen</h2>
-              <div className="flex gap-3">
-                <div className="flex items-center gap-1 text-slate-600 text-xs">
-                  <IoLocation />
-                  <p>Dhaka</p>
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-slate-600 text-xs">
-                  <SlCalender />
-                  <p>Dhaka</p>
-                </div>
+                <h4 className="font-semibold">$4959</h4>
               </div>
-              <h4 className="font-semibold">$4959</h4>
             </div>
           </div>
-        </div>
+        </Link>
+        {/*  */}
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/details">
+          <div>
+            <div className="flex gap-3 rounded-lg bg-white border-2 mb-5">
+              <img
+                className="h-[110px] md:h-[100px] w-[130px] rounded-lg"
+                src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-semibold text-md mt-1">
+                  Oxygen Taipei NTU Oxygen Gongguan
+                </h2>
+                <h2 className="font-semibold text-md -mt-2">
+                  Taipei NTU Oxygen
+                </h2>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <IoLocation />
+                    <p>Dhaka</p>
+                  </div>
+                  <div className="flex items-center gap-1 text-slate-600 text-xs">
+                    <SlCalender />
+                    <p>Dhaka</p>
+                  </div>
+                </div>
+                <h4 className="font-semibold">$4959</h4>
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
+
+      {/* report modal */}
+
+      <dialog
+        id="my_modal_report"
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className=" w-full  md:w-[500px] rounded-xl bg-gray-100 p-5 ">
+          <div className="flex justify-end">
+            <form method="dialog">
+              <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+                <RxCross2 />
+              </button>
+            </form>
+          </div>
+
+          <div className="">
+            <h2 className="font-semibold">
+              Is there something wrong with this ad?
+            </h2>
+            <form>
+              <div className="my-3">
+                <label htmlFor="reason" className="text-sm font-bold">
+                  Reason
+                </label>
+
+                <select
+                  type="text"
+                  name="reason"
+                  id="reason"
+                  className="w-full border focus:outline-none py-2 rounded-md"
+                >
+                  <option value="reason1">Reason 1</option>
+                  <option value="reason2">Reason 2</option>
+                  <option value="reason3">Reason 3</option>
+                  <option value="reason4">Reason 4</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="message" className="text-sm font-bold">
+                  Message
+                </label>
+                <textarea
+                  className="w-full border focus:outline-none rounded-md"
+                  cols={7}
+                  rows={4}
+                  type="text"
+                  name="message"
+                  id="message"
+                />
+              </div>
+              <button className="w-full mt-3 bg-[#fb6320] py-2 text-white rounded-md">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
