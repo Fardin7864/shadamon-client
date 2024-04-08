@@ -11,26 +11,37 @@ import { useState } from "react";
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
   const [sorting, setSorting] = useState(true);
+  const [filter, setFilter] = useState(true);
   const [categories, setCategories] = useState(true);
   const [sell, setSell] = useState(true);
   const [location, setLocation] = useState(true);
 
+  // show more
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
 
+  // sorting
   const toggleSorting = () => {
     setSorting(!sorting);
   };
 
+  // filter
+  const toggleFilter = () => {
+    setFilter(!filter);
+  };
+
+  // categories
   const toggleCategories = () => {
     setCategories(!categories);
   };
 
+  // sell
   const toggleSell = () => {
     setSell(!sell);
   };
 
+  // location
   const toggleLocation = () => {
     setLocation(!location);
   };
@@ -57,11 +68,78 @@ const Sidebar = () => {
               <button
                 type="button"
                 className="w-full text-start flex items-center gap-x-3 text-lg font-bold text-slate-700 justify-between"
+                onClick={toggleFilter}
+              >
+                Filter {filter ? <FaAngleDown /> : <FaAngleUp />}
+              </button>
+            </li>
+
+            {filter && (
+              <>
+                <li>
+                  <button
+                    type="button"
+                    className="w-full text-start flex items-center gap-x-3 text-md font-bold text-slate-700 justify-between mt-2"
+                  >
+                    Price
+                  </button>
+                </li>
+
+                <li className="flex gap-x-4">
+                  <input type="checkbox" id="highToLow" />
+                  <label htmlFor="Cheap" className="text-md text-slate-700 ">
+                    High to Low
+                  </label>
+                </li>
+                <li className="flex gap-x-4">
+                  <input type="checkbox" id="lowToHigh" />
+                  <label
+                    htmlFor="homeDelivery"
+                    className="text-md text-slate-700 "
+                  >
+                    Low to High
+                  </label>
+                </li>
+
+                {/*  */}
+
+                <li>
+                  <button
+                    type="button"
+                    className="w-full text-start flex items-center gap-x-3 text-md font-bold text-slate-700 justify-between mt-2"
+                  >
+                    Featured
+                  </button>
+                </li>
+
+                <li className="flex gap-x-4 ">
+                  <input type="checkbox" id="featuredPost" />
+                  <label
+                    htmlFor="Cheap"
+                    className="text-md text-slate-700 mb-3"
+                  >
+                    All featured Post
+                  </label>
+                </li>
+              </>
+            )}
+
+            {/*  */}
+            <hr />
+
+            <li>
+              <button
+                type="button"
+                className="w-full text-start flex items-center gap-x-3 text-lg font-bold text-slate-700 justify-between mt-3"
                 onClick={toggleSorting}
               >
                 Sorting {sorting ? <FaAngleDown /> : <FaAngleUp />}
               </button>
             </li>
+
+            {/*  */}
+
+            {/*  */}
             {sorting && (
               <>
                 <li className="flex gap-x-4">
