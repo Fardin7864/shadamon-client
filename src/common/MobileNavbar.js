@@ -14,7 +14,7 @@ import {
 const MobileNavbar = () => {
   const location = usePathname();
 
-  console.log(location);
+  // console.log(location);
   // console.log(location);
   return (
     <div>

@@ -16,7 +16,7 @@ const Chat = () => {
       .then((data) => setconversation(data));
   }, []);
 
-  console.log(conversation);
+  // console.log(conversation);
 
   return (
     <div style={{ maxWidth: "500px" }} className=" mx-auto ">
