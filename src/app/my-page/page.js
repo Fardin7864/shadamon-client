@@ -1,10 +1,13 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React from "react";
-import { IoCloseOutline } from "react-icons/io5";
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
+
 const MyPage = () => {
   return (
-    <div className="w-[500px]  mx-auto pt-5 ">
+    <div className="w-full md:w-[500px]  mx-auto pt-5 mb-20 md:mb-5">
       <div className="rounded-t-xl border border-gray-200 bg-[#f8f8f8]">
         <div className="p-3 flex justify-between items-center gap-3 rounded-t-xl bg-white">
           <div className="flex gap-3">
@@ -27,10 +30,6 @@ const MyPage = () => {
               </button>
             </Link>
           </div>
-
-          <button className="bg-gray-300 rounded-full h-8 w-8 hover:bg-black duration-300 hover:text-white text-2xl flex justify-center items-center">
-            <IoCloseOutline />
-          </button>
         </div>
         <hr />
         <div className=" bg-white pt-3">
@@ -49,12 +48,19 @@ const MyPage = () => {
               alt=""
             />
             <div className="">
-              <div className="flex gap-3">
-                <h4 className="font-bold text-xl">Rubel Store</h4>
-                <p>5 Seller</p>
+              <h4 className="font-bold text-xl">Rubel Store</h4>
+              <div className="flex gap-3 -mt-1 items-center">
+                <div className="flex gap-[2px]">
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStarHalfAlt className="text-[#fb6320] text-xs" />
+                </div>
+                <p className="text-xs text-green-700 font-semibold">2039</p>
               </div>
-              <p className="text-sm -mt-2">5,521 time visited</p>
-              <p className="text-sm -mt-2">Electronics & Mobile Phone</p>
+
+              <p className="text-sm -mt-1">Electronics & Mobile Phone</p>
             </div>
           </div>
 
@@ -102,12 +108,12 @@ const MyPage = () => {
                     src="/cover.jpeg"
                     alt=""
                   />
-                  <div className="p-2">
-                    <h3 className="font-semibold text-sm">35.4</h3>
-                    <h3 className="font-semibold text-sm -mt-1 mb-1">
+                  <div className="pt-2">
+                    <h3 className="font-semibold text-sm px-2">35.4</h3>
+                    <h3 className="font-semibold text-sm -mt-1 mb-1 px-2">
                       2 BHK Apartment Flora
                     </h3>
-                    <button className="w-full bg-gray-300 rounded-sm">
+                    <button className=" w-full rounded-b text-white bg-[#fb6320]">
                       Post Promote
                     </button>
                   </div>
@@ -121,12 +127,12 @@ const MyPage = () => {
                     src="/cover.jpeg"
                     alt=""
                   />
-                  <div className="p-2">
-                    <h3 className="font-semibold text-sm">35.4</h3>
-                    <h3 className="font-semibold text-sm -mt-1 mb-1">
+                  <div className="pt-2">
+                    <h3 className="font-semibold text-sm px-2">35.4</h3>
+                    <h3 className="font-semibold text-sm -mt-1 mb-1 px-2">
                       2 BHK Apartment Flora
                     </h3>
-                    <button className="w-full bg-gray-300 rounded-sm">
+                    <button className=" w-full rounded-b text-white bg-[#fb6320]">
                       Post Promote
                     </button>
                   </div>
@@ -141,12 +147,12 @@ const MyPage = () => {
                 alt=""
               />
 
-              <div className="p-2  bg-white z-10">
-                <h3 className="font-semibold text-sm">35.4</h3>
-                <h3 className="font-semibold text-sm -mt-1 mb-1">
+              <div className="pt-2  bg-white z-10">
+                <h3 className="font-semibold text-sm px-2">35.4</h3>
+                <h3 className="font-semibold text-sm -mt-1 mb-1 px-2">
                   2 BHK Apartment Flora
                 </h3>
-                <button className="w-full bg-gray-300 rounded-sm">
+                <button className=" w-full rounded-b text-white bg-[#fb6320]">
                   Post Promote
                 </button>
               </div>
