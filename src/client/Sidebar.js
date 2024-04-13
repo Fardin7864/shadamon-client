@@ -136,9 +136,6 @@ const Sidebar = () => {
                 Sorting {sorting ? <FaAngleDown /> : <FaAngleUp />}
               </button>
             </li>
-
-            {/*  */}
-
             {/*  */}
             {sorting && (
               <>

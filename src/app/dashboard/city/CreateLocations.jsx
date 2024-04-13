@@ -21,7 +21,7 @@ const CreateLocation = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon-m-server.vercel.app/api/v1/locations"
+          "https://shadamon.up.railway.app/api/v1/locations"
         );
         setUsers(res.data?.data);
         setLoading(false);
@@ -36,7 +36,7 @@ const CreateLocation = () => {
     const removeFeature = async () => {
       try {
         await axios.delete(
-          `https://shadamon-m-server.vercel.app/api/v1/locations/${id}`
+          `https://shadamon.up.railway.app/api/v1/locations/${id}`
         );
         setRender(render + 1);
       } catch (error) {
@@ -79,7 +79,7 @@ const CreateLocation = () => {
     setEditUserId(id);
     try {
       const updateUser = await axios.get(
-        `https://shadamon-m-server.vercel.app/api/v1/locations?id=${id}`
+        `https://shadamon.up.railway.app/api/v1/locations?id=${id}`
       );
       const userData = updateUser.data?.data[0];
       setEditedUser({
@@ -97,7 +97,7 @@ const CreateLocation = () => {
   const handleSaveUpdate = async (id) => {
     try {
       await axios.patch(
-        `https://shadamon-m-server.vercel.app/api/v1/locations/update/${id}`,
+        `https://shadamon.up.railway.app/api/v1/locations/update/${id}`,
         editedUser
       );
       console.log(editedUser);
@@ -119,7 +119,7 @@ const CreateLocation = () => {
     try {
       console.log(editedUser);
       await axios.post(
-        "https://shadamon-m-server.vercel.app/api/v1/locations",
+        "https://shadamon.up.railway.app/api/v1/locations",
         editedUser
       );
       setEditedUser({

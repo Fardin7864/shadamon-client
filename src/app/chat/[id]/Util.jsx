@@ -5,45 +5,51 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import MessageList from "./MessageList";
 
-const Util = () => {
-    const [conversation, setconversation] = useState();
-    const [user, setUser] = useState();
-    const [router, setRouter] = useState(null);
-  
-    useEffect(() => {
-      import('next/router').then((nextRouter) => {
-        setRouter(nextRouter);
-      });
-    }, []);
-  
-    const goBack = () => {
-      if (router) {
-        router.default.back();
-      }
-    };
-  
-    useEffect(() => {
-      fetch("/chat.json")
-        .then((res) => res.json())
-        .then((data) => setconversation(data));
-    }, []);
-    useEffect(() => {
-      const message = conversation?.filter(
-        (message) => message.id == params.params.id
-      );
-      setUser(message ? message[0] : null);
-    }, [conversation, params.params.id]);
+const Util = ({ params }) => {
+  const [conversation, setconversation] = useState();
+  const [user, setUser] = useState();
+  const [router, setRouter] = useState(null);
 
-    return (
-        <>
-                 <div className=" w-[500px] ml-[0px] rounded-xl bg-white pt-3 px-3 pb-10">
+  useEffect(() => {
+    import("next/router").then((nextRouter) => {
+      setRouter(nextRouter);
+    });
+  }, []);
+
+  const goBack = () => {
+    if (router) {
+      router.default.back();
+    }
+  };
+
+  useEffect(() => {
+    fetch("/chat.json")
+      .then((res) => res.json())
+      .then((data) => setconversation(data));
+  }, []);
+  useEffect(() => {
+    const message = conversation?.filter(
+      (message) => message.id == params.params.id
+    );
+    setUser(message ? message[0] : null);
+  }, [conversation, params.params.id]);
+
+  return (
+    <>
+      <div className=" w-[500px] ml-[0px] rounded-xl bg-white pt-3 px-3 pb-10">
         {/* arow and cross */}
         <form method="dialog">
           <div className="flex justify-between items-center">
-            <button onClick={goBack} className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+            <button
+              onClick={goBack}
+              className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full "
+            >
               <FaArrowLeftLong />
             </button>
-            <button onClick={goBack} className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+            <button
+              onClick={goBack}
+              className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full "
+            >
               <RxCross2 />
             </button>
           </div>
@@ -73,10 +79,10 @@ const Util = () => {
         </div>
 
         {/* chat list */}
-        <MessageList/>
-      </div> 
-        </>
-    );
+        <MessageList />
+      </div>
+    </>
+  );
 };
 
 export default Util;

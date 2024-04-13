@@ -55,7 +55,7 @@ const CreateSubLocation = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon-m-server.vercel.app/api/v1/locations"
+          "https://shadamon.up.railway.app/api/v1/locations"
         );
         setUsers(res.data?.data);
       } catch (error) {
@@ -86,7 +86,7 @@ const CreateSubLocation = () => {
 
     console.log(newSub)
     const res = await  axios.patch(
-      `https://shadamon-m-server.vercel.app/api/v1/locations/update/${selectedCategory}`,newSub
+      `https://shadamon.up.railway.app/api/v1/locations/update/${selectedCategory}`,newSub
     );
     if(res.data.message) Swal.fire({
       icon: "success",

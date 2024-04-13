@@ -26,7 +26,7 @@ const SocialLogin = () => {
           editBy: "",
         };
 
-        fetch("https://shadamon-m-server.vercel.app/api/v1/users/add", {
+        fetch("https://shadamon.up.railway.app/api/v1/users/add", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

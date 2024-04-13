@@ -35,7 +35,7 @@ const CreateUser = () => {
     e.preventDefault();
 
     if(formData.username != ""){
-         const res = await axios.post("https://shadamon-m-server.vercel.app/api/v1/users/add", formData)
+         const res = await axios.post("https://shadamon.up.railway.app/api/v1/users/add", formData)
     if(res.data.message === "User created successfully!")
     toast.success('Created New user!', {
         position: "top-right",

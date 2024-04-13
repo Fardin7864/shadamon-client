@@ -1,3 +1,4 @@
+"use client"
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
@@ -25,7 +26,7 @@ const DisplayCategory = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon-m-server.vercel.app/api/v1/categorys"
+          "https://shadamon.up.railway.app/api/v1/categorys"
         );
         setUsers(res.data?.data);
         setLoading(false);
@@ -40,7 +41,7 @@ const DisplayCategory = () => {
     const removeFeature = async () => {
       try {
         await axios.delete(
-          `https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`
+          `https://shadamon.up.railway.app/api/v1/categorys/delete/${id}`
         );
         setRender(render + 1);
       } catch (error) {
@@ -83,7 +84,7 @@ const DisplayCategory = () => {
     setEditUserId(id);
     try {
       const updateUser = await axios.get(
-        `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
+        `https://shadamon.up.railway.app/api/v1/categorys?id=${id}`
       );
       const userData = updateUser.data?.data[0];
       setEditedUser({
@@ -104,7 +105,7 @@ const DisplayCategory = () => {
   const handleSaveUpdate = async (id) => {
     try {
       await axios.patch(
-        `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
+        `https://shadamon.up.railway.app/api/v1/categorys/update/${id}`,
         editedUser
       );
       console.log(editedUser);
@@ -126,7 +127,7 @@ const DisplayCategory = () => {
     try {
       console.log(editedUser);
       await axios.post(
-        "https://shadamon-m-server.vercel.app/api/v1/categorys/add",
+        "https://shadamon.up.railway.app/api/v1/categorys/add",
         editedUser
       );
       setEditedUser({

@@ -65,7 +65,7 @@ const NewSubCategory = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon-m-server.vercel.app/api/v1/categorys"
+          "https://shadamon.up.railway.app/api/v1/categorys"
         );
         setUsers(res.data?.data);
       } catch (error) {
@@ -103,7 +103,7 @@ const NewSubCategory = () => {
     };
 
     const res = await  axios.patch(
-      `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${selectedCategory}`,newSub
+      `https://shadamon.up.railway.app/api/v1/categorys/update/${selectedCategory}`,newSub
     );
     if(res.data.message) Swal.fire({
       icon: "success",
