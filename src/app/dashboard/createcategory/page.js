@@ -1,13 +1,10 @@
-
 import CreateCategoryPage from "./CreateCategoryPage";
 
 const CreateCategory = () => {
-
-
   return (
-<>
-<CreateCategoryPage/>
-</>
+    <>
+      <CreateCategoryPage />
+    </>
   );
 };
 

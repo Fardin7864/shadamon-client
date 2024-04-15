@@ -6,7 +6,8 @@ import { FaHome } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { MdCarpenter } from "react-icons/md";
 import { IoHeartCircle } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
@@ -15,6 +16,22 @@ const Sidebar = () => {
   const [categories, setCategories] = useState(true);
   const [sell, setSell] = useState(true);
   const [location, setLocation] = useState(true);
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://shadamon.up.railway.app/api/v1/categorys");
+        setCategoryList(response.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(categoryList);
 
   // show more
   const toggleShowMore = () => {

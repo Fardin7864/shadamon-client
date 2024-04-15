@@ -16,6 +16,12 @@ const Chat = () => {
       .then((data) => setconversation(data));
   }, []);
 
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/api/v1/chats")
+  //     .then((res) => res.json())
+  //     .then((data) => setconversation(data));
+  // }, []);
+
   // console.log(conversation);
 
   return (
