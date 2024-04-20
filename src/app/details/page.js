@@ -28,7 +28,7 @@ const Details = () => {
       <div>
         <div>
           <img
-            className="rounded-lg"
+            className="rounded-lg w-full"
             src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
             alt=""
           />
@@ -39,10 +39,6 @@ const Details = () => {
             <div className="flex items-center gap-2 text-sm">
               <IoEye className="text-[#fb6320]" />
               <p>975 Views</p>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <HiSpeakerWave className="text-[#fb6320]" />
-              Get More View
             </div>
           </div>
         </div>
