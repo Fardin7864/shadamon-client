@@ -156,12 +156,17 @@ const Details = () => {
             </div>
           </div>
 
+          {/* promote this post */}
+
           <button className="border-2 bg-[#ffded0] text-[#fb6320] border-[#fb6320] w-full justify-center items-center gap-2 my-3 py-2 rounded-md font-bold flex ">
             <span className="text-xl">
               <LiaArrowCircleUpSolid />
             </span>{" "}
             Promote This Post
           </button>
+
+          {/* ad */}
+          <div></div>
 
           <hr />
 

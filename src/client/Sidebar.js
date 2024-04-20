@@ -8,11 +8,12 @@ import { MdCarpenter } from "react-icons/md";
 import { IoHeartCircle } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Filter from "./Filter";
 
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
   const [sorting, setSorting] = useState(true);
-  const [filter, setFilter] = useState(true);
+
   const [categories, setCategories] = useState(true);
   const [sell, setSell] = useState(true);
   const [location, setLocation] = useState(true);
@@ -21,17 +22,17 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://shadamon.up.railway.app/api/v1/categorys");
+        const response = await axios.get(
+          "https://shadamon.up.railway.app/api/v1/categorys"
+        );
         setCategoryList(response.data.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
   }, []);
-
-  console.log(categoryList);
 
   // show more
   const toggleShowMore = () => {
@@ -41,11 +42,6 @@ const Sidebar = () => {
   // sorting
   const toggleSorting = () => {
     setSorting(!sorting);
-  };
-
-  // filter
-  const toggleFilter = () => {
-    setFilter(!filter);
   };
 
   // categories
@@ -80,66 +76,9 @@ const Sidebar = () => {
                 For you
               </button>
             </li>
+            {/* filter */}
 
-            <li>
-              <button
-                type="button"
-                className="w-full text-start flex items-center gap-x-3 text-lg font-bold text-slate-700 justify-between"
-                onClick={toggleFilter}
-              >
-                Filter {filter ? <FaAngleDown /> : <FaAngleUp />}
-              </button>
-            </li>
-
-            {filter && (
-              <>
-                <li>
-                  <button
-                    type="button"
-                    className="w-full text-start flex items-center gap-x-3 text-md font-bold text-slate-700 justify-between mt-2"
-                  >
-                    Price
-                  </button>
-                </li>
-
-                <li className="flex gap-x-4">
-                  <input type="checkbox" id="highToLow" />
-                  <label htmlFor="Cheap" className="text-md text-slate-700 ">
-                    High to Low
-                  </label>
-                </li>
-                <li className="flex gap-x-4">
-                  <input type="checkbox" id="lowToHigh" />
-                  <label
-                    htmlFor="homeDelivery"
-                    className="text-md text-slate-700 "
-                  >
-                    Low to High
-                  </label>
-                </li>
-
-                {/*  */}
-
-                <li>
-                  <button
-                    type="button"
-                    className="w-full text-start flex items-center gap-x-3 text-md font-bold text-slate-700 justify-between mt-2"
-                  >
-                    Featured
-                  </button>
-                </li>
-
-                <li className="flex gap-x-4 ">
-                  <input type="checkbox" id="featuredPost" />
-                  <label
-                    htmlFor="Cheap"
-                    className="text-md text-slate-700 mb-3"
-                  >
-                    All featured Post
-                  </label>
-                </li>
-              </>
-            )}
+            <Filter />
 
             {/*  */}
             <hr />
