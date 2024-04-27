@@ -76,7 +76,7 @@ const MainSection = () => {
             <p className="font-semibold">Location</p>
           </button>
           <button className="flex items-center gap-2">
-            <p className="font-semibold">Search</p>
+            <p className="font-semibold">Filter</p>
             <FaMagnifyingGlass />
           </button>
         </div>

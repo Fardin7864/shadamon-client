@@ -55,7 +55,7 @@ const MessageList = () => {
 
   console.log(messages);
   return (
-    <div>
+    <div style={{ height: "300px", overflowY: "scroll" }}>
       {messages?.map((message, index) => (
         <p
           key={index}

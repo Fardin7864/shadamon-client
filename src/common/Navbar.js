@@ -19,9 +19,6 @@ const Navbar = () => {
         <Link href={"/"} style={{ width: "250px" }} className=" h-16">
           <img src="/shadamonlogo.png" alt="logo" className="w-40 h-full " />
         </Link>
-
-        {/*  */}
-
         <div
           style={{ width: "500px" }}
           className=" w-[500px] h-16 flex justify-between items-center gap-3"
@@ -43,16 +40,18 @@ const Navbar = () => {
           </label>
           {/* <Posts /> */}
 
-          <div className=" flex items-center gap-2 ">
+          <div className=" flex items-center gap-2 left-4 relative">
             <button className=" bg-gray-200 p-2 rounded-full text-sm">
               EN
             </button>
+            <Link href={"/chat"} className=" flex items-center justify-center">
             <button className=" bg-gray-200 p-2 rounded-full">
               <IoMail className=" text-xl" />
             </button>
-            <sup className=" bg-red-600 -ml-5 px-[5px] py-[9.5px] -top-3 rounded-full text-[8px] text-white">
+            <sup className=" bg-red-600 relative -left-4 px-[5px] py-[8px] -top-3 rounded-full text-[8px] text-white">
               29
             </sup>
+            </Link>
           </div>
         </div>
         <div className=" w-[160px]">
