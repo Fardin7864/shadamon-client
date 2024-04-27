@@ -18,6 +18,8 @@ import { FaExclamationCircle } from "react-icons/fa";
 import { MdOutlineNotInterested } from "react-icons/md";
 import Link from "next/link";
 import { RxCross2 } from "react-icons/rx";
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Details = () => {
   return (
@@ -160,9 +162,30 @@ const Details = () => {
             </span>{" "}
             Promote This Post
           </button>
-
+          <hr />
           {/* ad */}
-          <div></div>
+          <div className="flex justify-between items-center my-3">
+            <div className="flex items-center gap-3">
+              <img
+                className="w-[40px] rounded-full h-[40px]"
+                src="/cover.jpeg"
+                alt=""
+              />
+              <div>
+                <h2 className="font-bold">শখ ফ্যাশন হাউজ</h2>
+                <div className="flex gap-[2px] items-center">
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStar className="text-[#fb6320] text-xs" />
+                  <FaStarHalfAlt className="text-[#fb6320] text-xs" />
+
+                  <div>(9)</div>
+                </div>
+              </div>
+            </div>
+            <button>Visit Shop</button>
+          </div>
 
           <hr />
 
