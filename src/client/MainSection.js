@@ -13,13 +13,17 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { MdCarpenter } from "react-icons/md";
 import { RiCellphoneFill } from "react-icons/ri";
 import { MdVerified } from "react-icons/md";
 import { IoArrowForwardCircle } from "react-icons/io5";
+import { BsFilterLeft } from "react-icons/bs";
+import Filter from "./Filter";
+import CategoryModal from "./CategoryModal";
+import LocationModal from "./LocationModal";
 
 const MainSection = () => {
   // modal close
@@ -45,12 +49,12 @@ const MainSection = () => {
   };
 
   //
-  const [categories, setCategories] = useState(true);
+  const [categories, setCategories] = useState(false);
   // const toggleCategories = () => {
   //   setCategories(!categories);
   // };
 
-  const [sell, setSell] = useState(true);
+  const [sell, setSell] = useState(false);
   const toggleSell = () => {
     setSell(!sell);
   };
@@ -75,9 +79,14 @@ const MainSection = () => {
             <IoLocation />
             <p className="font-semibold">Location</p>
           </button>
-          <button className="flex items-center gap-2">
+          <button
+            onClick={() =>
+              document.getElementById("my_modal_filter").showModal()
+            }
+            className="flex items-center gap-2"
+          >
             <p className="font-semibold">Filter</p>
-            <FaMagnifyingGlass />
+            <BsFilterLeft className="mt-1" />
           </button>
         </div>
 
@@ -382,8 +391,9 @@ const MainSection = () => {
 
       {/* category */}
       <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
-        <div className="w-full  md:w-[500px] rounded-xl bg-gray-100 p-2 ">
-          <div className="flex justify-end">
+        <div className="w-full  md:w-[500px] rounded-xl bg-gray-100 p-5">
+          <div className="flex justify-between">
+            <h3 className="font-bold ml-2">Select a Category</h3>
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
                 <RxCross2 />
@@ -391,147 +401,7 @@ const MainSection = () => {
             </form>
           </div>
 
-          <div className="flex flex-col items-start gap-5 mx-5">
-            <label className="form-control w-full max-w-xs">
-              <div className="label">
-                <span className="label-text font-bold">Select Category</span>
-              </div>
-            </label>
-            <ul>
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-lg font-semibold text-slate-700 justify-between pl-8"
-                  onClick={toggleSell}
-                >
-                  Sell{sell ? <FaAngleDown /> : <FaAngleUp />}
-                </button>
-              </li>
-
-              {sell && (
-                <>
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 text-md"
-                    >
-                      <FaCar />
-
-                      <span>
-                        <span className="text-blue-600">Electronics</span>
-                        <span className="text-slate-500 ml-1">(82,173)</span>
-                      </span>
-                    </button>
-                  </li>
-
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 text-md"
-                    >
-                      <RiCellphoneFill />
-
-                      <span>
-                        <span className="text-blue-600">Mobiles</span>
-                        <span className="text-slate-500 ml-1">(77,728)</span>
-                      </span>
-                    </button>
-                  </li>
-                </>
-              )}
-
-              <li>
-                <button
-                  type="button"
-                  className=" w-full text-start flex items-center gap-x-3 text-md text-gray-700 font-extrabold"
-                >
-                  <FaHome /> Home & Living
-                </button>
-
-                <ul>
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
-
-                      <span className="text-md">
-                        <span className="text-blue-600">Vehicles</span>
-                        <span className="text-slate-500 ml-1">(26,937)</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
-
-                      <span className="text-md">
-                        <span className="text-blue-600">Property</span>
-                        <span className="text-slate-500 ml-1">(20,377)</span>
-                      </span>
-                    </button>
-                  </li>
-
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
-
-                      <span className="text-md">
-                        <span className="text-blue-600">Pets & Animals</span>
-                        <span className="text-slate-500 ml-1">(16,935)</span>
-                      </span>
-                    </button>
-                  </li>
-                </ul>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <RiCellphoneFill />
-
-                  <span>
-                    <span className="text-blue-600">Education</span>
-                    <span className="text-slate-500 ml-1">(3,219)</span>
-                  </span>
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <MdCarpenter />
-
-                  <span>
-                    <span className="text-blue-600">Essentials</span>
-                    <span className="text-slate-500 ml-1">(3,074)</span>
-                  </span>
-                </button>
-              </li>
-
-              <li className="text-md text-slate-700 ml-7">Rent</li>
-              <li className="text-md text-slate-700 ml-7">Jobs</li>
-              <li className="text-md text-slate-700 ml-7">Offer</li>
-              <li className="text-md text-slate-700 ml-7">Bid</li>
-            </ul>
-          </div>
+          <CategoryModal />
         </div>
       </dialog>
 
@@ -541,7 +411,8 @@ const MainSection = () => {
         className="modal modal-bottom sm:modal-middle"
       >
         <div className=" w-full  md:w-[500px] rounded-xl bg-gray-100 p-5 ">
-          <div className="flex justify-end">
+          <div className="flex justify-between">
+            <h3 className="font-bold ml-2">Select Location</h3>
             <form method="dialog">
               <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
                 <RxCross2 />
@@ -549,132 +420,25 @@ const MainSection = () => {
             </form>
           </div>
 
-          <div className="flex flex-col items-center gap-5">
-            <label className="form-control w-full max-w-xs">
-              <div className="label">
-                <span className="label-text font-bold">Select Location</span>
-              </div>
-            </label>
-            <ul>
-              <li>
-                <button
-                  type="button"
-                  className=" w-full text-start flex items-center gap-x-3 text-md text-gray-700 font-extrabold"
-                >
-                  <FaHome />
-                  All of Bangladesh
-                </button>
-              </li>
+          <LocationModal />
+        </div>
+      </dialog>
 
-              <li className="hs-accordion" id="users-accordion">
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <span>
-                    <span className="text-blue-600">Dhaka</span>
-                    <span className="text-slate-500 ml-1">(176,038)</span>
-                  </span>
-                </button>
-                <ul>
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
+      {/* filter */}
 
-                      <span className="text-sm text-blue-600">
-                        <span className="">Malibag</span>
-                        <span className=" ml-1 ">(5467)</span>
-                      </span>
-                    </button>
-                  </li>
-
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
-
-                      <span className="text-sm text-blue-600">
-                        <span className="">Rampura</span>
-                        <span className=" ml-1 ">(54215)</span>
-                      </span>
-                    </button>
-                  </li>
-
-                  <li>
-                    <button
-                      type="button"
-                      className="w-full text-start flex items-center gap-x-3 pl-7"
-                    >
-                      <span className="text-[9px] text-gray-500">
-                        <FaCircle />
-                      </span>
-
-                      <span className="text-sm text-blue-600">
-                        <span className="">Gulshan</span>
-                        <span className=" ml-1 ">(3625)</span>
-                      </span>
-                    </button>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <span>
-                    <span className="text-blue-600">Chattogram</span>
-                    <span className="text-slate-500 ml-1">(30,519)</span>
-                  </span>
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <span>
-                    <span className="text-blue-600">Dhaka Division</span>
-                    <span className="text-slate-500 ml-1">(16,650)</span>
-                  </span>
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <span>
-                    <span className="text-blue-600">Sylhet</span>
-                    <span className="text-slate-500 ml-1">(12,554)</span>
-                  </span>
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="w-full text-start flex items-center gap-x-3 text-md"
-                >
-                  <span>
-                    <span className="text-blue-600">Khulna</span>
-                    <span className="text-slate-500 ml-1">(9,862)</span>
-                  </span>
-                </button>
-              </li>
-            </ul>
+      <dialog
+        id="my_modal_filter"
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className=" w-full md:w-[500px] rounded-xl bg-gray-100 p-5 ">
+          <div className="flex justify-end">
+            <form method="dialog">
+              <button className="hover:bg-black duration-300 hover:text-white bg-gray-300 p-2 lg:p-3 rounded-full ">
+                <RxCross2 />
+              </button>
+            </form>
           </div>
+          <Filter />
         </div>
       </dialog>
     </div>

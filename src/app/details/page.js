@@ -28,7 +28,7 @@ const Details = () => {
       <div>
         <div>
           <img
-            className="rounded-lg"
+            className="rounded-lg w-full"
             src="https://shadamon.vercel.app/assets/premium-cover-pic.jpg"
             alt=""
           />
@@ -39,10 +39,6 @@ const Details = () => {
             <div className="flex items-center gap-2 text-sm">
               <IoEye className="text-[#fb6320]" />
               <p>975 Views</p>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <HiSpeakerWave className="text-[#fb6320]" />
-              Get More View
             </div>
           </div>
         </div>
@@ -156,12 +152,17 @@ const Details = () => {
             </div>
           </div>
 
+          {/* promote this post */}
+
           <button className="border-2 bg-[#ffded0] text-[#fb6320] border-[#fb6320] w-full justify-center items-center gap-2 my-3 py-2 rounded-md font-bold flex ">
             <span className="text-xl">
               <LiaArrowCircleUpSolid />
             </span>{" "}
             Promote This Post
           </button>
+
+          {/* ad */}
+          <div></div>
 
           <hr />
 
