@@ -32,7 +32,7 @@ const DisplayFeature = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon.up.railway.app/api/v1/categorys"
+          "https://shadamon-m-server.vercel.app/api/v1/categorys"
         );
         setUsers(res.data?.data);
         setLoading(false);
@@ -59,7 +59,7 @@ const DisplayFeature = () => {
     const removeFeature = async () => { 
       try {
         const res = await  axios.patch(
-          `https://shadamon.up.railway.app/api/v1/categorys/update/${id}`,feature
+          `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,feature
         );
         setRender(render + 1);
         console.log(res)
@@ -110,7 +110,7 @@ const DisplayFeature = () => {
     setEditUserId(id);
     try {
       const updateUser = await axios.get(
-        `https://shadamon.up.railway.app/api/v1/categorys?id=${id}`
+        `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
       );
       const userData = updateUser.data?.data[0];
       setEditedUser({
@@ -133,7 +133,7 @@ const DisplayFeature = () => {
   const handleSaveUpdate = async (id) => {
     try {
       await axios.patch(
-        `https://shadamon.up.railway.app/api/v1/categorys/update/${id}`,
+        `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
         editedUser
       );
       console.log(editedUser);
@@ -177,7 +177,7 @@ const DisplayFeature = () => {
       }
       console.log(feature)
      const res = await axios.patch(
-        `https://shadamon.up.railway.app/api/v1/categorys/update/${editedCategory}`,
+        `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${editedCategory}`,
         feature
       );
       console.log(res.data)

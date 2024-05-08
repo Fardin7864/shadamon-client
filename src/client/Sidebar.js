@@ -23,7 +23,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://shadamon.up.railway.app/api/v1/categorys"
+          "https://shadamon-m-server.vercel.app/api/v1/categorys"
         );
         setCategoryList(response.data.data);
       } catch (error) {

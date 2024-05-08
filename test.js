@@ -27,7 +27,7 @@ const CreateCategory = () => {
     const loader = async () => {
       try {
         const res = await axios.get(
-          "https://shadamon.up.railway.app/api/v1/categorys"
+          "https://shadamon-m-server.vercel.app/api/v1/categorys"
         );
         setUsers(res.data?.data);
         setLoading(false);
@@ -41,7 +41,7 @@ const CreateCategory = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://shadamon.up.railway.app/api/v1/categorys/delete/${id}`
+        `https://shadamon-m-server.vercel.app/api/v1/categorys/delete/${id}`
       );
       setRender(render + 1);
     } catch (error) {
@@ -53,7 +53,7 @@ const CreateCategory = () => {
     setEditUserId(id);
     try {
       const updateUser = await axios.get(
-        `https://shadamon.up.railway.app/api/v1/categorys?id=${id}`
+        `https://shadamon-m-server.vercel.app/api/v1/categorys?id=${id}`
       );
       const userData = updateUser.data?.data[0];
       setEditedUser({
@@ -75,7 +75,7 @@ const CreateCategory = () => {
   const handleSaveUpdate = async (id) => {
     try {
       await axios.patch(
-        `https://shadamon.up.railway.app/api/v1/categorys/update/${id}`,
+        `https://shadamon-m-server.vercel.app/api/v1/categorys/update/${id}`,
         editedUser
       );
       setEditUserId(null);
@@ -98,7 +98,7 @@ const CreateCategory = () => {
     // console.log(editedUser)
     try {
       await axios.post(
-        "https://shadamon.up.railway.app/api/v1/categorys/add",
+        "https://shadamon-m-server.vercel.app/api/v1/categorys/add",
         editedUser
       );
       // Reset editedUser state

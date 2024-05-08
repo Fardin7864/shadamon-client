@@ -20,7 +20,7 @@ const LocationTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://shadamon.up.railway.app/api/v1/locations");
+        const res = await axios.get("https://shadamon-m-server.vercel.app/api/v1/locations");
         setLocations(res.data?.data);
         setLoading(false);
       } catch (error) {
@@ -33,7 +33,7 @@ const LocationTable = () => {
   const handleDelete = async (id) => {
     const removeLocation = async () => { 
       try {
-        await axios.delete(`https://shadamon.up.railway.app/api/v1/locations/${id}`);
+        await axios.delete(`https://shadamon-m-server.vercel.app/api/v1/locations/${id}`);
         setRender(render + 1);
       } catch (error) {
         console.error("Error deleting location:", error);
@@ -71,7 +71,7 @@ const LocationTable = () => {
     // console.log(id)
     setEditLocationId(id);
     try {
-      const response = await axios.get(`https://shadamon.up.railway.app/api/v1/locations?id=${id}`);
+      const response = await axios.get(`https://shadamon-m-server.vercel.app/api/v1/locations?id=${id}`);
       const locationData = response.data?.data[0];
       // console.log(locationData)
       setEditedLocation({
@@ -91,7 +91,7 @@ const LocationTable = () => {
 
   const handleSaveUpdate = async (id) => { 
     try {
-      await axios.patch(`https://shadamon.up.railway.app/api/v1/locations/update/${id}`, editedLocation);
+      await axios.patch(`https://shadamon-m-server.vercel.app/api/v1/locations/update/${id}`, editedLocation);
       setEditLocationId(null);
       setRender(render + 1);
     } catch (error) {

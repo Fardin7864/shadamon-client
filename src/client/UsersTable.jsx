@@ -20,7 +20,7 @@ const UsersTable = () => {
   useEffect(() => {
     const loader = async () => {
       try {
-        const res = await axios.get("https://shadamon.up.railway.app/api/v1/users");
+        const res = await axios.get("https://shadamon-m-server.vercel.app/api/v1/users");
         setUsers(res.data?.data);
         setLoading(false)
       } catch (error) {
@@ -32,7 +32,7 @@ const UsersTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://shadamon.up.railway.app/api/v1/users/delete/${id}`);
+      await axios.delete(`https://shadamon-m-server.vercel.app/api/v1/users/delete/${id}`);
       setRender(render + 1);
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -42,7 +42,7 @@ const UsersTable = () => {
   const handleUpdate = async (id) => {
     setEditUserId(id);
     try {
-      const updateUser = await axios.get(`https://shadamon.up.railway.app/api/v1/users?id=${id}`);
+      const updateUser = await axios.get(`https://shadamon-m-server.vercel.app/api/v1/users?id=${id}`);
       const userData = updateUser.data?.data[0];
       setEditedUser({
         username: userData.username,
@@ -60,7 +60,7 @@ const UsersTable = () => {
 
   const handleSaveUpdate = async (id) => { 
     try {
-      await axios.patch(`https://shadamon.up.railway.app/api/v1/users/update/${id}`, editedUser);
+      await axios.patch(`https://shadamon-m-server.vercel.app/api/v1/users/update/${id}`, editedUser);
       setEditUserId(null);
       setRender(render + 1);
     } catch (error) {

@@ -51,7 +51,7 @@ const Chat = () => {
         filteredConversation.map(async (conversation) => {
           try {
             const response = await axios.get(
-              `https://shadamon.up.railway.app/api/v1/posts?id=${conversation.postId}`
+              `https://shadamon-m-server.vercel.app/api/v1/posts?id=${conversation.postId}`
             );
             return response.data;
           } catch (error) {
