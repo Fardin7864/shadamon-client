@@ -11,9 +11,6 @@ import axios from "axios";
 import Filter from "./Filter";
 
 const Sidebar = () => {
-  const [showMore, setShowMore] = useState(false);
-  const [sorting, setSorting] = useState(true);
-
   const [categories, setCategories] = useState(true);
   const [sell, setSell] = useState(true);
   const [location, setLocation] = useState(true);
@@ -33,16 +30,6 @@ const Sidebar = () => {
 
     fetchData();
   }, []);
-
-  // show more
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
-  };
-
-  // sorting
-  const toggleSorting = () => {
-    setSorting(!sorting);
-  };
 
   // categories
   const toggleCategories = () => {
@@ -67,101 +54,6 @@ const Sidebar = () => {
           data-hs-accordion-always-open
         >
           <ul className="space-y-1">
-            <li>
-              <button
-                type="button"
-                className="w-full text-start flex items-center gap-x-3 py-1 text-lg font-extrabold text-[#fb6320] "
-              >
-                <IoHeartCircle />
-                For you
-              </button>
-            </li>
-            {/* filter */}
-
-            <Filter />
-
-            {/*  */}
-            <hr />
-
-            <li>
-              <button
-                type="button"
-                className="w-full text-start flex items-center gap-x-3 text-lg font-bold text-slate-700 justify-between mt-3"
-                onClick={toggleSorting}
-              >
-                Sorting {sorting ? <FaAngleDown /> : <FaAngleUp />}
-              </button>
-            </li>
-            {/*  */}
-            {sorting && (
-              <>
-                <li className="flex gap-x-4">
-                  <input type="checkbox" id="Urgent" />
-                  <label htmlFor="Urgent" className="text-md text-slate-700 ">
-                    Urgent
-                  </label>
-                </li>
-                <li className="flex gap-x-4">
-                  <input type="checkbox" id="Cheap" />
-                  <label htmlFor="Cheap" className="text-md text-slate-700 ">
-                    Cheap Rate
-                  </label>
-                </li>
-                <li className="flex gap-x-4">
-                  <input type="checkbox" id="homeDelivery" />
-                  <label
-                    htmlFor="homeDelivery"
-                    className="text-md text-slate-700 "
-                  >
-                    {" "}
-                    Home Delivery
-                  </label>
-                </li>
-
-                {showMore && (
-                  <>
-                    <li className="flex gap-x-4">
-                      <input type="checkbox" id="Urgent" />
-                      <label
-                        htmlFor="Urgent"
-                        className="text-md text-slate-700 "
-                      >
-                        Urgent 2
-                      </label>
-                    </li>
-                    <li className="flex gap-x-4">
-                      <input type="checkbox" id="Cheap" />
-                      <label
-                        htmlFor="Cheap"
-                        className="text-md text-slate-700 "
-                      >
-                        Cheap Rate 2
-                      </label>
-                    </li>
-                    <li className="flex gap-x-4">
-                      <input type="checkbox" id="homeDelivery" />
-                      <label
-                        htmlFor="homeDelivery"
-                        className="text-md text-slate-700 "
-                      >
-                        {" "}
-                        Home Delivery 2
-                      </label>
-                    </li>
-                  </>
-                )}
-                <button
-                  type="button"
-                  onClick={toggleShowMore}
-                  className="w-full text-start ml-7 text-sm font-semibold text-[#fb6320] pb-3"
-                >
-                  {showMore ? "Show Less" : "See More"}
-                </button>
-              </>
-            )}
-
-            <hr />
-
             <li>
               <button
                 type="button"
